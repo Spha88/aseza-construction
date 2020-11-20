@@ -24,12 +24,17 @@ const Nav = () => {
         <nav className={styles.Nav}>
             <h2 className={styles.Logo}>Navigator</h2>
             <ul className={styles.NavItems}>
+                <li className={styles.Item}>
+                    <Link to="/">Home</Link>
+                </li>
                 {menuItems.map(item => (
                     <li key={item.connectedNode.node.id} className={styles.Item}>
-                        <Link
-                            to={`${item.connectedNode.node.slug}`}>{item.label}</Link>
+                        <Link to={`/page/${item.connectedNode.node.slug}`}>{item.label}</Link>
                     </li>
                 ))}
+                <li className={styles.Item}>
+                    <Link to="/Blog">Blog</Link>
+                </li>
             </ul>
         </nav>
     )

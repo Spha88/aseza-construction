@@ -3,6 +3,7 @@ import './App.css';
 import Home from './pages/Home';
 import Blog from './pages/Blog/Blog';
 import SingleBlog from './pages/Blog/SingleBlog/SingleBlog';
+import SinglePage from './pages/SinglePage/SinglePage';
 import Nav from './components/Nav/Nav';
 
 function App() {
@@ -14,13 +15,16 @@ function App() {
         </header>
         <main>
           <Switch>
-            <Route path="/blog/:id">
+            <Route path="/blog/:id" >
               <SingleBlog />
+            </Route>
+            <Route path="/page/:id" exact>
+              <SinglePage />
             </Route>
             <Route path="/blog">
               <Blog />
             </Route>
-            <Route path="/">
+            <Route path="/" exact>
               <Home />
             </Route>
           </Switch>

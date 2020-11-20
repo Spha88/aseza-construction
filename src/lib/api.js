@@ -107,3 +107,37 @@ export const getSinglePost = id => {
     return res.data.data.post;
   })
 }
+
+
+export const getSinglePage = slug => {
+  return axios({
+    method: 'post',
+    url: 'https://mywordpress.netslate.co.za/api/graphql',
+    data: {
+      query: `
+          query PageBySlug($id: ID!, $idType: PageIdType!) {
+            page(id: $id, idType: $idType) {
+              content
+              title
+              featuredImage {
+                node {
+                  caption
+                  altText
+                  sourceUrl
+                }
+              }
+            }
+          }
+        `
+      ,
+      variables: {
+        id: slug,
+        idType: 'URI'
+      }
+
+    }
+  }).then(res => {
+    // console.log(res.data.data.post);
+    return res.data.data.page;
+  })
+}
