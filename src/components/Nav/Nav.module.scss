@@ -1,0 +1,23 @@
+.Nav {
+    background-color: rgb(216, 216, 216);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    .Logo {
+        margin: 0;
+        padding: 0;
+    }
+    .NavItems {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        .Item {
+            padding: 0 1rem;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}

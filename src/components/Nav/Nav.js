@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { getMenu } from '../../lib/api'
+import styles from './Nav.module.scss';
 
 
 const Nav = () => {
@@ -20,11 +21,11 @@ const Nav = () => {
     if (loading) return <h2>Loading ...</h2>
 
     return (
-        <nav>
-            <h2>Navigator</h2>
-            <ul>
+        <nav className={styles.Nav}>
+            <h2 className={styles.Logo}>Navigator</h2>
+            <ul className={styles.NavItems}>
                 {menuItems.map(item => (
-                    <li key={item.connectedNode.node.id}>
+                    <li key={item.connectedNode.node.id} className={styles.Item}>
                         <Link
                             to={`${item.connectedNode.node.slug}`}>{item.label}</Link>
                     </li>
