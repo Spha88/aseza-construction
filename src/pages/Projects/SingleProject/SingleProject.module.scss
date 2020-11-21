@@ -1,0 +1,56 @@
+.Project {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    max-width: 1024px;
+    .Images {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        figure {
+            width: 50%;
+            margin: 0;
+            padding: 5px 5px 0 0;
+            overflow: hidden;
+            position: relative;
+            &:hover {
+                figcaption {
+                    bottom: 0;
+                }
+            }
+            img {
+                width: 100%;
+                height: auto;
+            }
+            figcaption {
+                transition: all 500ms ease-in-out;
+                position: absolute;
+                bottom: -100%;
+                background: rgba(255, 255, 255, 0.705);
+                padding: .3rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+    .Content {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+        div[class*="gallery"] {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            figure {
+                width: 33.33%;
+                margin: 0;
+                padding: 5px;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

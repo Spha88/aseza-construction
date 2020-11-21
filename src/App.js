@@ -5,6 +5,8 @@ import Blog from './pages/Blog/Blog';
 import SingleBlog from './pages/Blog/SingleBlog/SingleBlog';
 import SinglePage from './pages/SinglePage/SinglePage';
 import Nav from './components/Nav/Nav';
+import Projects from './pages/Projects/Projects';
+import SingleProject from './pages/Projects/SingleProject/SingleProject';
 
 function App() {
   return (
@@ -23,6 +25,12 @@ function App() {
             </Route>
             <Route path="/blog">
               <Blog />
+            </Route>
+            <Route path="/projects/:slug">
+              <SingleProject />
+            </Route>
+            <Route path="/projects">
+              <Projects />
             </Route>
             <Route path="/" exact>
               <Home />

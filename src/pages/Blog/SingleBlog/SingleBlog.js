@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSinglePost } from '../../../lib/api';
 import { formatDate } from '../../../lib/utils';
+import styles from './SingleBlog.module.scss';
 
 const SingleBlog = () => {
 
@@ -24,7 +25,7 @@ const SingleBlog = () => {
   if (!post) return <h2>No post found</h2>
 
   return (
-    <div>
+    <div className={styles.Blog}>
       <header><h1>Single Blog page</h1></header>
       <article>
         <div>

@@ -1,143 +1,192 @@
 import axios from 'axios';
 
-export const getMenu = id => {
+const fetchData = (query, variables = {}) => {
   return axios({
     method: 'post',
     url: 'https://mywordpress.netslate.co.za/api/graphql',
     data: {
-      query: `
-        query menuItems($id: ID!, $idType: MenuNodeIdTypeEnum!) {
-          menu(id: $id, idType: $idType) {
-            menuItems {
-              nodes {
-                label
-                connectedNode {
-                  node {
-                    id
-                    ... on Page {
-                      slug
-                    }
-                  }
+      query: query,
+      variables: variables
+    }
+  }).then(res => {
+    return res.data.data;
+  })
+};
+
+export const getMenu = async (id) => {
+  const query = `
+    query menuItems($id: ID!, $idType: MenuNodeIdTypeEnum!) {
+      menu(id: $id, idType: $idType) {
+        menuItems {
+          nodes {
+            label
+            connectedNode {
+              node {
+                id
+                ... on Page {
+                  slug
                 }
               }
             }
           }
-          
         }
-        `,
-      variables: {
-        id: id,
-        idType: 'DATABASE_ID'
       }
     }
-  }).then(res => {
-    // console.log(res.data.data.posts.edges);
-    return res.data;
-  })
+  `;
+  const variables = {
+    id: id,
+    idType: 'DATABASE_ID'
+  }
+  const data = await fetchData(query, variables);
+  return data;
 }
 
 // get all posts
-export const getPosts = () => {
-  return axios({
-    method: 'post',
-    url: 'https://mywordpress.netslate.co.za/api/graphql',
-    data: {
-      query: `
-        query AllPosts {
-          posts(first: 20, where: { orderby: { field: DATE, order: DESC}}) {
-            edges {
-              node {
-                id
-                date
-                title
-                slug
-                extraPostInfo {
-                  authorExcerpt
-                  thumbImage {
-                    mediaItemUrl
-                  }
-                }
+export const getPosts = async () => {
+  const query = `
+    query AllPosts {
+      posts(first: 20, where: { orderby: { field: DATE, order: DESC}}) {
+        edges {
+          node {
+            id
+            date
+            title
+            slug
+            extraPostInfo {
+              authorExcerpt
+              thumbImage {
+                mediaItemUrl
               }
             }
           }
         }
-        `
+      }
     }
-  }).then(res => {
-    // console.log(res.data.data.posts.edges);
-    return res.data.data.posts.edges;
-  })
+    `
+  const data = await fetchData(query);
+  return data.posts.edges;
 }
 
 
 // Get single post using the slug as an id
-export const getSinglePost = id => {
-  return axios({
-    method: 'post',
-    url: 'https://mywordpress.netslate.co.za/api/graphql',
-    data: {
-      query: `
-                  fragment PostFields on Post {
-                    title
-                    excerpt
-                    slug
-                    date
-                    featuredImage {
-                      node {
-                        sourceUrl
-                      }
-                    }
-                  }
-                  query PostBySlug($id: ID!, $idType: PostIdType!) {
-                    post(id: $id, idType: $idType) {
-                      ...PostFields
-                      content
-                    }
-                  }
-                `
-      ,
-      variables: {
-        id: id,
-        idType: 'SLUG'
+export const getSinglePost = async (id) => {
+  const query = `
+    fragment PostFields on Post {
+      title
+      excerpt
+      slug
+      date
+      featuredImage {
+        node {
+          sourceUrl
+        }
       }
-
     }
-  }).then(res => {
-    // console.log(res.data.data.post);
-    return res.data.data.post;
-  })
+    query PostBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        ...PostFields
+        content
+      }
+    }
+  `;
+  const variables = {
+    id: id,
+    idType: 'SLUG'
+  }
+
+  const data = await fetchData(query, variables)
+  return data.post;
 }
 
 
-export const getSinglePage = slug => {
-  return axios({
-    method: 'post',
-    url: 'https://mywordpress.netslate.co.za/api/graphql',
-    data: {
-      query: `
-          query PageBySlug($id: ID!, $idType: PageIdType!) {
-            page(id: $id, idType: $idType) {
-              content
+export const getSinglePage = async (slug) => {
+  const query = `
+    query PageBySlug($id: ID!, $idType: PageIdType!) {
+      page(id: $id, idType: $idType) {
+        content
+        title
+        featuredImage {
+          node {
+            caption
+            altText
+            sourceUrl
+          }
+        }
+      }
+    }
+  `;
+  const variables = {
+    id: slug,
+    idType: 'URI'
+  }
+
+  const data = await fetchData(query, variables);
+  return data.page;
+}
+
+// Get projects
+// get all posts
+export const getProjects = async () => {
+  const query = `
+    query AllProjects {
+      projects {
+        nodes {
+          uri
+          title
+          content
+          date
+          slug
+          projectImages {
+            image1 {
+              sourceUrl
+              slug
+              caption
               title
-              featuredImage {
-                node {
-                  caption
-                  altText
-                  sourceUrl
-                }
-              }
             }
           }
-        `
-      ,
-      variables: {
-        id: slug,
-        idType: 'URI'
+        }
       }
-
     }
-  }).then(res => {
-    // console.log(res.data.data.post);
-    return res.data.data.page;
-  })
+  `
+  const data = await fetchData(query);
+  return data.projects.nodes;
+}
+
+// Get single project using a slug
+export const getSingleProject = async (slug) => {
+  const query = `
+    query ProjectBySlug($id: ID!, $idType: ProjectIdType!) {
+      project(id: $id, idType: $idType) {
+        title
+        content
+        date
+        modified
+        projectImages {
+          image2 {
+            sourceUrl
+            caption
+          }
+          image3 {
+            caption
+            sourceUrl
+          }
+          image4 {
+            sourceUrl
+            caption
+          }
+          image1 {
+            caption
+            sourceUrl
+          }
+        }
+      }
+    }
+  `;
+  const variables = {
+    id: slug,
+    idType: 'SLUG'
+  }
+
+  const data = await fetchData(query, variables);
+  return data.project;
 }

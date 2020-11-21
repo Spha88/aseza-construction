@@ -10,7 +10,7 @@ const Nav = () => {
 
     useEffect(() => {
         async function getMenuItems() {
-            const { data } = await getMenu(2);
+            const data = await getMenu(2);
             setMenuItems(data.menu.menuItems.nodes);
             setLoading(false);
             // console.log(data.menu.menuItems.nodes);
@@ -27,11 +27,21 @@ const Nav = () => {
                 <li className={styles.Item}>
                     <Link to="/">Home</Link>
                 </li>
+
+
+                {/* Check if the nav item actually has a connected node, which is a page/post*/}
                 {menuItems.map(item => (
-                    <li key={item.connectedNode.node.id} className={styles.Item}>
-                        <Link to={`/page/${item.connectedNode.node.slug}`}>{item.label}</Link>
-                    </li>
+                    item.connectedNode && (
+                        <li key={item.connectedNode.node.id} className={styles.Item}>
+                            <Link to={`/page/${item.connectedNode.node.slug}`}>{item.label}</Link>
+                        </li>
+                    )
                 ))}
+
+                <li className={styles.Item}>
+                    <Link to="/projects">Projects</Link>
+                </li>
+
                 <li className={styles.Item}>
                     <Link to="/Blog">Blog</Link>
                 </li>
