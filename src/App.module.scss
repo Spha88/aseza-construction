@@ -1,0 +1,11 @@
+.App {
+  position: relative;
+  header {
+    z-index: 200;
+    width: 100%;
+    position: absolute;
+  }
+  main {
+    z-index: 1;
+  }
+}

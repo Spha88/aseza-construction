@@ -1,9 +1,11 @@
 @import '../../assets/styles/mixin.scss';
 
 .Nav {
-    background-color: $theme-black;
     padding: .8rem 2rem;
-    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
     .NavContent {
         display: flex;
         width: 100%;

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
-import Home from './pages/Home';
+import styles from './App.module.scss';
+import Home from './pages/Home/Home';
 import Blog from './pages/Blog/Blog';
 import SingleBlog from './pages/Blog/SingleBlog/SingleBlog';
 import SinglePage from './pages/SinglePage/SinglePage';
@@ -11,7 +11,7 @@ import SingleProject from './pages/Projects/SingleProject/SingleProject';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className={styles.App}>
         <header>
           <Nav />
         </header>
