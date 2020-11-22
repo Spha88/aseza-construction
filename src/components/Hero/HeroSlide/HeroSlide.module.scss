@@ -91,12 +91,18 @@
         a {
             display: inline-block;
             border: 1px solid $theme-color;
-            padding: 8px 30px;
+            padding: 10px 30px;
             color: $theme-white;
             margin-right: 1rem;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: $semi-bold;
+            transition: all 300ms ease-in-out;
+            &:hover {
+                background: $theme-color;
+            }
             &:first-child {
                 background: $theme-color;
-                color: black;
             }
         }
     }
@@ -116,9 +122,9 @@
         right: 0;
         display: flex;
         width: 100%;
-        height: 100px;
+        height: 150px;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         .Dot {
             margin: 0 2px;
             height: 5px;

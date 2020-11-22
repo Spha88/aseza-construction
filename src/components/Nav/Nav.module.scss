@@ -45,6 +45,10 @@
             font-weight: $semi-bold;
             border: $theme-color 1px solid;
             padding: 8px 30px;
+            @include transition;
+            &:hover {
+                background: $theme-color;
+            }
         }
     }
     
