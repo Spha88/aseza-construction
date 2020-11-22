@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import ProjectSlide from '../../../components/ProjectImagesSlide/ProjectSlide';
 import { getSingleProject } from '../../../lib/api';
 import styles from './SingleProject.module.scss';
 
@@ -28,19 +29,7 @@ const SingleProject = () => {
                 <h2>{project.title}</h2>
             </header>
 
-            <div className={styles.Images}>
-                {Object.keys(project.projectImages).map((key, index) => (
-                    project.projectImages[key] &&
-                    <figure key={index}>
-                        <img src={project.projectImages[key].sourceUrl} alt="" />
-
-                        {project.projectImages[key].caption &&
-                            <figcaption dangerouslySetInnerHTML={{ __html: project.projectImages[key].caption }} />
-                        }
-                    </figure>
-                )
-                )}
-            </div>
+            <ProjectSlide slides={project.projectImages} />
 
             <div
                 className={styles.Content}
