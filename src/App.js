@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className={styles.App}>
-        <header>
+        <header className={styles.Header}>
           <Nav />
         </header>
         <main>
