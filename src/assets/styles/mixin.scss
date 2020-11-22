@@ -1,0 +1,41 @@
+/* Variables */
+/* Colors */
+$text-color: rgb(97, 97, 97);
+$theme-color: #ffb922;
+$theme-black: #0d0d0d;
+
+/* Fonts */
+$heading-font: 'Rubik', sans-serif;
+$body-font: 'Quicksand', sans-serif;
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+
+/* @import '../../../assets/styles/variables.scss'; */
+$laptop: 1024px;
+$tablet: 768px;
+$mobile: 425px;
+
+/* Media Query */
+@mixin media($bp) {
+    transition: all 500ms ease-in-out;
+    @if $bp == 1024px {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    } @else if $bp == 768px {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $bp == 425px {
+        @media (max-width: 425px) {
+            @content;
+        }
+    }
+}
+/* Transition */
+@mixin transition {
+    transition: all 500ms ease-in-out;
+}
