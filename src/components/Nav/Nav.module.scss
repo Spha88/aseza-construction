@@ -1,23 +1,50 @@
+@import '../../assets/styles/mixin.scss';
+
 .Nav {
-    background-color: rgb(216, 216, 216);
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    background-color: $theme-black;
+    padding: .8rem 2rem;
     margin-bottom: 2rem;
-    .Logo {
-        margin: 0;
-        padding: 0;
-    }
-    .NavItems {
+    .NavContent {
         display: flex;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        .Item {
-            padding: 0 1rem;
-            a {
-                text-decoration: none;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        justify-content: space-between;
+        align-items: center;
+        .Logo {
+            margin: 0;
+            padding: 0;
+            color: $theme-color;
+        }
+        .NavItems {
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            color: $theme-white;
+            font-size: 13px;
+            .Item {
+                padding: 0 1rem;
+                
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+                .Active {
+                    color: $theme-color;
+                }
             }
         }
+        .QuoteBtn {
+            font-size: 13px;
+            color: $theme-white;
+            display: inline-block;
+            font-weight: $semi-bold;
+            border: $theme-color 1px solid;
+            padding: 8px 30px;
+        }
     }
+    
+    
 }

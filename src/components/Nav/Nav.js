@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { getMenu } from '../../lib/api'
+import ContactDetails from './ContactDetails/ContactDetails';
 import styles from './Nav.module.scss';
 
 
@@ -21,32 +22,38 @@ const Nav = () => {
     if (loading) return <h2>Loading ...</h2>
 
     return (
-        <nav className={styles.Nav}>
-            <h2 className={styles.Logo}>Navigator</h2>
-            <ul className={styles.NavItems}>
-                <li className={styles.Item}>
-                    <Link to="/">Home</Link>
-                </li>
+        <React.Fragment>
+            <ContactDetails />
+            <nav className={styles.Nav}>
+                <div className={styles.NavContent}>
+                    <h2 className={styles.Logo}>Aseza</h2>
+                    <ul className={styles.NavItems}>
 
-
-                {/* Check if the nav item actually has a connected node, which is a page/post*/}
-                {menuItems.map(item => (
-                    item.connectedNode && (
-                        <li key={item.connectedNode.node.id} className={styles.Item}>
-                            <Link to={`/page/${item.connectedNode.node.slug}`}>{item.label}</Link>
+                        <li className={styles.Item}>
+                            <NavLink to="/" activeClassName={styles.Active} exact>Home</NavLink>
                         </li>
-                    )
-                ))}
 
-                <li className={styles.Item}>
-                    <Link to="/projects">Projects</Link>
-                </li>
+                        <li className={styles.Item}>
+                            <NavLink to="/projects" activeClassName={styles.Active}>Projects</NavLink>
+                        </li>
 
-                <li className={styles.Item}>
-                    <Link to="/Blog">Blog</Link>
-                </li>
-            </ul>
-        </nav>
+                        <li className={styles.Item}>
+                            <NavLink to="/Blog" activeClassName={styles.Active}>Blog</NavLink>
+                        </li>
+
+                        {/* Check if the nav item actually has a connected node, which is a page/post*/}
+                        {menuItems.map(item => (
+                            item.connectedNode && (
+                                <li key={item.connectedNode.node.id} className={styles.Item}>
+                                    <NavLink to={`/page/${item.connectedNode.node.slug}`} activeClassName={styles.Active}>{item.label}</NavLink>
+                                </li>
+                            )
+                        ))}
+                    </ul>
+                    <Link to="/Blog" className={styles.QuoteBtn}>GET A QUOTE</Link>
+                </div>
+            </nav>
+        </React.Fragment>
     )
 }
 
