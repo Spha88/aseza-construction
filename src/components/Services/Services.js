@@ -4,15 +4,14 @@ import styles from './Services.module.scss';
 import bg1 from '../../assets/images/service1.jpg';
 import bg2 from '../../assets/images/service2.jpeg';
 import bg3 from '../../assets/images/service3.jpg';
+import HeaderElement from '../UI/HeaderElement.js/HeaderElement';
 
 const Services = () => {
     return (
         <div className={styles.Services}>
             <Container>
 
-                <header>
-                    <h2>Our services</h2>
-                </header>
+                <HeaderElement label="Our Services" />
 
                 <div className={styles.ServicesContainer}>
                     <div className={styles.ServiceItem} style={{ backgroundImage: `url(${bg1})` }}>

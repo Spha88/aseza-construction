@@ -1,0 +1,22 @@
+@import '../../../assets/styles/mixin.scss';
+.Header {
+    text-align: center;
+    h2 {
+        display: inline-block;
+        position: relative;
+        padding-bottom: 18px;
+        margin: 0;
+        &::after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 50%;
+            background: $theme-color;
+            bottom: 0;
+            font-size: 36px;
+            border-radius: 5px;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+    }
+}
