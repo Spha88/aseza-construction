@@ -4,7 +4,7 @@ import styles from './Services.module.scss';
 import bg1 from '../../assets/images/service1.jpg';
 import bg2 from '../../assets/images/service2.jpeg';
 import bg3 from '../../assets/images/service3.jpg';
-import HeaderElement from '../UI/HeaderElement.js/HeaderElement';
+import HeaderElement from '../UI/HeaderElement/HeaderElement';
 
 const Services = () => {
     return (

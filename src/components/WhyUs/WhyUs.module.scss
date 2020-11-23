@@ -1,0 +1,40 @@
+@import '../../assets/styles/mixin.scss';
+.WhyUs {
+    padding: 4rem 0;
+    .Row {
+        display: flex;
+        justify-content: space-between;
+        padding: 3rem 0;
+        .FeatureImg {
+            width: 40%;
+            height: 375px;
+            background: $theme-black;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .Reasons {
+            width: 55%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding-left: 2rem;
+            .Reason {
+                width: 47%;
+                padding: 0 0 1rem 0;
+                svg {
+                    width: 30px;
+                    margin-bottom: .5rem;
+                    stroke: $theme-color;
+                }
+                h3 {
+                    margin: 0 0 .5rem;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+    
+}
