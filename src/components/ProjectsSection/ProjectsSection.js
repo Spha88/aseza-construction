@@ -12,7 +12,6 @@ const ProjectsSection = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             const projects = await getLatestProjects();
-            console.log(projects);
             setProjects(projects);
             setLoading(false);
         }
@@ -32,14 +31,14 @@ const ProjectsSection = () => {
                             style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}>
 
                             <div className={styles.ProjectContent}>
-                                <div className={styles.ContentInner}>
-                                    <h3>{project.title}</h3>
-                                    <h4>{project.projectDetails.subtitle}</h4>
-                                    <div>
-                                        <p>Description Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                        <Link to={`/projects/${project.slug}`}>Read more</Link>
-                                    </div>
+
+                                <h3>{project.title}</h3>
+                                <h4>{project.projectDetails.subtitle}</h4>
+                                <div>
+                                    <p>Description Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                    <Link to={`/projects/${project.slug}`}>Read more</Link>
                                 </div>
+
                             </div>
                             <div className={styles.Curtain}></div>
                         </div>

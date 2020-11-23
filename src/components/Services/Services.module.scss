@@ -3,6 +3,7 @@
 .Services {
     background: #e9e9e9;
     padding: 3rem 0 5rem;
+    margin-bottom: 4rem;
     .ServicesContainer {
         display: flex;
         padding-top: 2rem;
@@ -15,7 +16,6 @@
             &:last-child { margin-right: 0}
             padding: 3rem 3rem;
             text-align: center;
-
             svg {
                 width: 35px;
                 stroke: $theme-color;

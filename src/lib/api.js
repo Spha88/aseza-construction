@@ -215,3 +215,27 @@ export const getSingleProject = async (slug) => {
   const data = await fetchData(query, variables);
   return data.project;
 }
+
+
+// get all testimonials
+export const getTestimonials = async () => {
+  const query = `
+    query AllPosts {
+      testimonials {
+        nodes {
+          content
+          testimonialDetails {
+            name
+            occupation
+            organisation
+            image {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+    `
+  const data = await fetchData(query);
+  return data.testimonials.nodes;
+}
