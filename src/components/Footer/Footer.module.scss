@@ -1,0 +1,76 @@
+@import '../../assets/styles/mixin.scss';
+
+.Footer {
+    background: $theme-black;
+    color: $theme-white;
+    padding: 3rem 0 9rem;
+    .Row {
+        display: flex;
+        .FooterSection {
+            width: 25%;
+            padding: 1rem;
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+        }
+        .LogoCopyRight {
+            width: 35%;
+            .Logo {
+                color: $theme-color;
+                h2 {
+                    text-transform: uppercase;
+                    margin: 0;
+                    font-size: 36px;
+                }
+                h3 {
+                    margin: 0;
+                    font-size: 16px;
+                    font-weight: $light;
+                }
+            }
+            .CopyRight {
+                margin-top: 20px;
+                h5, h6 {
+                    font-size: 14px;
+                    font-weight: $light;
+                    letter-spacing: 1px;
+                    margin: 0 0 8px;
+                }
+            }
+        }
+        .ContactDetails {
+            ul {
+                li {
+                    font-weight: $light;
+                    &:first-child {
+                        color: $theme-color;
+                        font-size: 18px;
+                        margin-bottom: 2rem;
+                    }
+                    &:nth-child(3) {
+                        margin-bottom: 2rem;
+                    }
+                }
+            }
+        }
+        .Nav {
+            ul {
+                li {
+                    margin-bottom: .5rem;
+                    .Active {
+                        color: $theme-color;
+                    }
+                }
+            }
+        }
+        .SocialMediaLinks {
+            ul {
+                li {
+                    margin-bottom: .5rem;
+                }
+            }
+        }
+    }
+}

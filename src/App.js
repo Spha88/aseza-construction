@@ -7,6 +7,7 @@ import SinglePage from './pages/SinglePage/SinglePage';
 import Nav from './components/Nav/Nav';
 import Projects from './pages/Projects/Projects';
 import SingleProject from './pages/Projects/SingleProject/SingleProject';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <Footer />
       </div>
     </Router>
   );

@@ -1,6 +1,8 @@
 @import '../../assets/styles/mixin.scss';
 
 .ProjectsSection {
+    background: $theme-grey;
+    padding-top: 2rem;
     .Row {
         display: flex;
         padding-top: 2rem;
