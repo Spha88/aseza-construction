@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ProjectSlide from '../../../components/ProjectImagesSlide/ProjectSlide';
+import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSingleProject } from '../../../lib/api';
 import styles from './SingleProject.module.scss';
 
@@ -25,20 +26,19 @@ const SingleProject = () => {
 
     return (
         <div className={styles.Project}>
-            <header>
+            <PageHeader label="Projects" backgroundImg={project.projectImages.image1.sourceUrl} />
+
+            <div className={styles.ProjectContent}>
                 <h2>{project.title}</h2>
-            </header>
+                <ProjectSlide slides={project.projectImages} />
+                <div
+                    className={styles.Content}
+                    dangerouslySetInnerHTML={{ __html: project.content }} />
 
-            <ProjectSlide slides={project.projectImages} />
-
-            <div
-                className={styles.Content}
-                dangerouslySetInnerHTML={{ __html: project.content }} />
-            <footer>
-                <Link to="/projects">
-                    Back
-                </Link>
-            </footer>
+                <footer>
+                    <Link to="/projects">Back</Link>
+                </footer>
+            </div>
         </div>
 
     )

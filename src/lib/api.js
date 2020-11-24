@@ -46,17 +46,20 @@ export const getPosts = async () => {
   const query = `
     query AllPosts {
       posts(first: 20, where: { orderby: { field: DATE, order: DESC}}) {
-        edges {
-          node {
-            id
-            date
-            title
-            slug
-            extraPostInfo {
-              authorExcerpt
-              thumbImage {
-                mediaItemUrl
-              }
+        nodes {
+          date
+          title
+          slug
+          author {
+            node {
+              firstName
+              lastName
+            }
+          }
+          excerpt
+          featuredImage {
+            node {
+              sourceUrl
             }
           }
         }
@@ -64,7 +67,8 @@ export const getPosts = async () => {
     }
     `
   const data = await fetchData(query);
-  return data.posts.edges;
+  console.log(data.posts.nodes);
+  return data.posts.nodes;
 }
 
 
@@ -190,6 +194,10 @@ export const getSingleProject = async (slug) => {
         date
         modified
         projectImages {
+          image1 {
+            caption
+            sourceUrl
+          }
           image2 {
             sourceUrl
             caption
@@ -201,10 +209,6 @@ export const getSingleProject = async (slug) => {
           image4 {
             sourceUrl
             caption
-          }
-          image1 {
-            caption
-            sourceUrl
           }
         }
       }

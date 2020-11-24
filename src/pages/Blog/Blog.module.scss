@@ -1,7 +1,41 @@
-.Blog {
-    max-width: 1024px;
-    margin: 2rem auto;
-    img {
-        width: 100%;
+@import '../../assets/styles/mixin.scss';
+
+.Blogs {
+    max-width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    .Blog {
+        width: 33.33%;
+        padding: 10px;
+        padding-bottom: 2rem;
+        .FeatureImg {
+            width: 100%;
+            background-size: cover;
+            height: 250px;
+        }
+        .PostBody {
+            padding: 1rem;
+            margin: 0;
+            h2 {
+                margin: 0;
+                padding: 0;
+            }
+            .MetaData {
+                color: $theme-color;
+                p {
+                    margin: 8px 0 0 0;
+                    font-style: italic;
+                    display: flex;
+                    svg {
+                        width: 20px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            .Excerpt {
+                p { margin: 10px 0 0 0; font-weight: $medium;}
+            }
+        }
     }
 }

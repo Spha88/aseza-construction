@@ -89,7 +89,8 @@ const ProjectSlide = ({ slides }) => {
 
                 {slideArr.map((slide, index) => (
                     <div key={index} className={styles.Slide} style={{ backgroundImage: `url(${slide.sourceUrl})` }}>
-                        <div className={styles.Caption} dangerouslySetInnerHTML={{ __html: slide.caption }} />
+                        { slide.caption && <div className={styles.Caption} dangerouslySetInnerHTML={{ __html: slide.caption }} />}
+
                     </div>
                 ))}
             </div>
