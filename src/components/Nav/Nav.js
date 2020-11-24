@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
+import $ from 'jquery';
 import { getMenu } from '../../lib/api'
 import ContactDetails from './ContactDetails/ContactDetails';
 import styles from './Nav.module.scss';
@@ -10,6 +11,20 @@ const Nav = () => {
     const [menuItems, setMenuItems] = useState();
 
     useEffect(() => {
+        // change nav background color and position
+        const nav = $("#top-page-nav");
+        const distance = nav.offset().top;
+        const $window = $(window);
+
+        $window.scroll(function () {
+            if ($window.scrollTop() >= distance) {
+                nav.addClass(styles.Active);
+            } else {
+                nav.removeClass(styles.Active);
+            }
+        })
+
+        // Get menu items from database;
         async function getMenuItems() {
             const data = await getMenu(2);
             setMenuItems(data.menu.menuItems.nodes);
@@ -24,7 +39,7 @@ const Nav = () => {
     return (
         <React.Fragment>
             <ContactDetails />
-            <nav className={styles.Nav}>
+            <nav className={styles.Nav} id="top-page-nav">
                 <div className={styles.NavContent}>
                     <h2 className={styles.Logo}>Aseza</h2>
                     <ul className={styles.NavItems}>
