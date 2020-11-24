@@ -11,7 +11,7 @@ const Nav = () => {
     const [menuItems, setMenuItems] = useState();
 
     useEffect(() => {
-        // change nav background color and position
+        // change nav background color and position on
         const nav = $("#top-page-nav");
         const distance = nav.offset().top;
         const $window = $(window);
@@ -34,39 +34,40 @@ const Nav = () => {
         getMenuItems();
     }, [])
 
-    if (loading) return <h2>Loading ...</h2>
-
     return (
         <React.Fragment>
             <ContactDetails />
             <nav className={styles.Nav} id="top-page-nav">
-                <div className={styles.NavContent}>
-                    <h2 className={styles.Logo}>Aseza</h2>
-                    <ul className={styles.NavItems}>
+                {loading ? (<h2>Loading...</h2>) : (
+                    <div className={styles.NavContent}>
+                        <h2 className={styles.Logo}>Aseza</h2>
+                        <ul className={styles.NavItems}>
 
-                        <li className={styles.Item}>
-                            <NavLink to="/" activeClassName={styles.Active} exact>Home</NavLink>
-                        </li>
+                            <li className={styles.Item}>
+                                <NavLink to="/" activeClassName={styles.Active} exact>Home</NavLink>
+                            </li>
 
-                        <li className={styles.Item}>
-                            <NavLink to="/projects" activeClassName={styles.Active}>Projects</NavLink>
-                        </li>
+                            <li className={styles.Item}>
+                                <NavLink to="/projects" activeClassName={styles.Active}>Projects</NavLink>
+                            </li>
 
-                        <li className={styles.Item}>
-                            <NavLink to="/Blog" activeClassName={styles.Active}>Blog</NavLink>
-                        </li>
+                            <li className={styles.Item}>
+                                <NavLink to="/Blog" activeClassName={styles.Active}>Blog</NavLink>
+                            </li>
 
-                        {/* Check if the nav item actually has a connected node, which is a page/post*/}
-                        {menuItems.map(item => (
-                            item.connectedNode && (
-                                <li key={item.connectedNode.node.id} className={styles.Item}>
-                                    <NavLink to={`/page/${item.connectedNode.node.slug}`} activeClassName={styles.Active}>{item.label}</NavLink>
-                                </li>
-                            )
-                        ))}
-                    </ul>
-                    <Link to="/Blog" className={styles.QuoteBtn}>GET A QUOTE</Link>
-                </div>
+                            {/* Check if the nav item actually has a connected node, which is a page/post*/}
+                            {menuItems.map(item => (
+                                item.connectedNode && (
+                                    <li key={item.connectedNode.node.id} className={styles.Item}>
+                                        <NavLink to={`/page/${item.connectedNode.node.slug}`} activeClassName={styles.Active}>{item.label}</NavLink>
+                                    </li>
+                                )
+                            ))}
+                        </ul>
+                        <Link to="/Blog" className={styles.QuoteBtn}>GET A QUOTE</Link>
+                    </div>
+                )}
+
             </nav>
         </React.Fragment>
     )

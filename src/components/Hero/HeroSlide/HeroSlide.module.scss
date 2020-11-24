@@ -22,13 +22,17 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                position: absolute;
+                position: relative;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 100%;
                 max-width: 1200px;
                 height: 100%;
                 div {
+                    @include media($laptop) {
+                        width: 70%;
+                        margin: 0 auto;
+                    }
                     h6 {
                         color: $theme-color;
                         text-transform: uppercase;
@@ -40,6 +44,9 @@
                         color: $theme-white;
                         font-size: 60px;
                         margin: 0;
+                        @include media($laptop) {
+                            font-size: 45px;
+                        }
                     }
                     p {
                         width: 700px;
@@ -47,11 +54,12 @@
                         font-weight: $semi-bold;
                         font-size: 18px;
                         text-shadow: 1px 1px 13px #000000;
+                        @include media($laptop) {
+                            width: 500px;
+                        }
                     }
                 }
             }
-            
-
         }
     }
     .PrevBtn, .NextBtn {
@@ -88,6 +96,9 @@
         transform: translateX(-50%);
         width: 100%;
         max-width: 1200px;
+        @include media($laptop) {
+            width: 70%;
+        }
         a {
             display: inline-block;
             border: 1px solid $theme-color;
