@@ -1,7 +1,62 @@
-.Blog {
-    max-width: 1024px;
-    margin: 2rem auto;
-    img {
-        width: 100%;
+@import '../../assets/styles/mixin.scss';
+.ProjectsPage {
+    position: relative;
+    min-height: 100vh;
+    .Projects {
+        max-width: 1220px;
+        margin: 0 auto;
+        padding-bottom: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .Project {
+            width: 33.33%;
+            padding: 10px;
+            .ProjectImg {
+                position: relative;
+                width: 100%;
+                height: 325px;
+                background-position: center;
+                background-size: cover;
+            }
+            .DropShadow {
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.486);
+                @include transition;
+            }
+            .Details {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: 2rem;
+                width: 100%;
+                color: $theme-white;
+                h2 {
+                    margin: 0;
+                }
+                h3 {
+                    margin: 0 0 30px 0;
+                    font-size: 14px;
+                    color: $theme-color;
+                    text-transform: capitalize;
+                }
+                a {
+                    display: inline-block;
+                    border: 1px solid $theme-color;
+                    padding: 8px 20px;
+                    @include transition;
+                    &:hover {
+                        background: $theme-color;
+                    }
+                }
+            }
+            &:hover {
+                .DropShadow {
+                    background-color: rgba(0, 0, 0, 0.747);
+                }
+            }
+        }
     }
+
 }

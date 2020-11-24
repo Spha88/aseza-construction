@@ -136,6 +136,9 @@ export const getProjects = async () => {
           content
           date
           slug
+          projectDetails {
+            subtitle
+          }
           projectImages {
             image1 {
               sourceUrl
