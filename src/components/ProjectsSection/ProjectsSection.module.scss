@@ -18,6 +18,9 @@
             position: relative;
             overflow: hidden;
             @include transition;
+            @include media($laptop) {
+                height: 375px;
+            }
             .ProjectContent {
                 color: $theme-white;
                 z-index: 100;
@@ -26,15 +29,24 @@
                 position: absolute;
                 bottom: -170px;
                 @include transition;
+                @include media($laptop) {
+                    bottom: -300px;
+                }
                 h3 {
                     font-size: 30px;
                     margin: 0 0 5px 0;
+                    @include media($laptop) {
+                        font-size: 25px;
+                    }
                 }
                 h4 {
                     color: $theme-color;
                     font-size: 14px;
                     margin: 0 0 60px 0;
                     @include transition;
+                    @include media($laptop) {
+                        margin: 0 0 180px 0;
+                    }
                 }
                 p {
                     margin: 0 0 20px 0;

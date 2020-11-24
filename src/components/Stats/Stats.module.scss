@@ -1,21 +1,30 @@
 @import '../../assets/styles/mixin.scss';
 .Stats {
-    padding: 5rem 0; 
+    padding: 5rem 0 3rem; 
+    background: $theme-grey;
+    @include media($laptop) {
+        padding: 4rem 1rem 1rem;
+    }
     .Row {
         display: flex;
         justify-content: space-between;
         .Content {
             width: 60%;
-            padding-right: 2rem;
             padding-bottom: 2rem;
             h2 {
                 font-size: 36px;
+                text-align: center;
+                @include media($laptop) {
+                    font-size: 30px;
+                }
             }
             .StatsContainer {
                 display: flex;
                 justify-content: space-between;
                 padding-top: 1rem;
                 div {
+                    text-align: center;
+                    padding: 2rem;
                     h3 {
                         color: $theme-color;
                         font-family: $heading-font;
@@ -31,13 +40,17 @@
         }
         .Experience {
             width: 25%;
+            @include media($laptop) {
+                width: 35%;
+                height: 400px;
+            }
             .ContentContainer {
                 position: relative;
                 width: 100%;
                 height: 100%;
                 .Background {
                     position: absolute;
-                    z-index: -1;
+                    z-index: 1;
                     top: 0;
                     bottom: 0;
                     left: 0;
@@ -75,9 +88,6 @@
                         color: $theme-black
                     }
                 }
-
-
-
             }
         }
     }

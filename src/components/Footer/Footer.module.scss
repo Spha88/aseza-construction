@@ -41,6 +41,9 @@
             }
         }
         .ContactDetails {
+            @include media($laptop) {
+                width: 30%;
+            }
             ul {
                 li {
                     font-weight: $light;

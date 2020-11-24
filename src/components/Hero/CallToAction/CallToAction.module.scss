@@ -14,6 +14,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        
         .Content {
             color: $theme-white;
             h2 {
@@ -21,6 +22,7 @@
                 font-size: 30px;
                 font-family: $heading-font;
                 margin: 0;
+                @include transition;
             }
             p {
                 margin: 0;
@@ -31,6 +33,14 @@
             background: $theme-white;
             font-weight: $semi-bold;
             padding: 10px 30px;
+        }
+        @include media($laptop) {
+            width: 70%;
+            .Content {
+                h2 {
+                    font-size: 25px;
+                }
+            }
         }
     }
 }

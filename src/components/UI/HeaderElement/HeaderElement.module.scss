@@ -2,6 +2,9 @@
 .Header {
     text-align: center;
     padding-bottom: 1rem;
+    @include media($laptop) {
+        padding-bottom: .5rem;
+    }
     h2 {
         display: inline-block;
         position: relative;

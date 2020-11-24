@@ -1,6 +1,9 @@
 @import '../../assets/styles/mixin.scss';
 .WhyUs {
     padding: 4rem 0;
+    @include media($laptop) {
+        padding: 4rem 1rem 2rem;
+    }
     .Row {
         display: flex;
         justify-content: space-between;
@@ -12,6 +15,9 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            @include media($laptop) {
+                height: 390px;
+            }
         }
         .Reasons {
             width: 55%;
@@ -19,6 +25,9 @@
             justify-content: space-between;
             flex-wrap: wrap;
             padding-left: 2rem;
+            @include media($laptop) {
+                width: 58%;
+            }
             .Reason {
                 width: 47%;
                 padding: 0 0 1rem 0;
