@@ -6,6 +6,7 @@ import { formatDate } from '../../../lib/utils';
 import Article from '../Article/Article';
 import Blog from '../Blog';
 import PostWidget from '../PostsWidget/PostWidget';
+import ProjectsWidget from '../ProjectsWidget/ProjecstWidget';
 import styles from './SingleBlog.module.scss';
 
 const SingleBlog = () => {
@@ -36,6 +37,7 @@ const SingleBlog = () => {
         <main><Article post={post} /></main>
         <aside>
           <PostWidget />
+          <ProjectsWidget />
         </aside>
       </div>
     </div>

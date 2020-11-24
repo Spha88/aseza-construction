@@ -207,6 +207,27 @@ export const getLatestProjects = async () => {
   return data.projects.nodes;
 }
 
+// Get 4 latest projects for the front page
+export const getLatestProjectsForWidget = async () => {
+  const query = `
+    query AllProjects {
+      projects(first: 3, where: {orderby: {field: DATE, order: DESC}}) {
+        nodes {
+          title
+          slug
+          projectImages {
+            image1 {
+              sourceUrl(size: THUMBNAIL)
+            }
+          }
+        }
+      }
+    }
+  `
+  const data = await fetchData(query);
+  return data.projects.nodes;
+}
+
 // Get single project using a slug
 export const getSingleProject = async (slug) => {
   const query = `
