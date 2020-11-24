@@ -41,3 +41,9 @@ $mobile: 425px;
 @mixin transition {
     transition: all 500ms ease-in-out;
 }
+
+@mixin centerBackground {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,31 @@
+@import '../../../assets/styles/mixin.scss';
+.Article {
+    width: 100%;
+    margin: 0 auto;
+    .FeaturedImg {
+        width: 100%;
+        height: 400px;
+        @include centerBackground;
+    }
+    .Title {
+        margin-bottom: 10px;
+        text-align: left;
+    }
+    .MetaData {
+        text-align: left;
+        color: $theme-color;
+        p {
+            display: flex;
+            justify-content: flex-start;
+            margin: 0;
+            svg {
+                width: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .BlogContent {
+        width: 100%;
+        margin: 0 auto;
+    }
+}

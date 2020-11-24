@@ -71,6 +71,29 @@ export const getPosts = async () => {
   return data.posts.nodes;
 }
 
+// Get latest posts
+export const getLatestPosts = async () => {
+  const query = `
+    query AllPosts {
+      posts(first: 3, where: {orderby: {field: DATE, order: DESC}}) {
+        nodes {
+          date
+          title
+          slug
+          featuredImage {
+            node {
+              sourceUrl(size: THUMBNAIL)
+            }
+          }
+        }
+      }
+    }
+  `
+  const data = await fetchData(query);
+  console.log(data.posts.nodes);
+  return data.posts.nodes;
+}
+
 
 // Get single post using the slug as an id
 export const getSinglePost = async (id) => {

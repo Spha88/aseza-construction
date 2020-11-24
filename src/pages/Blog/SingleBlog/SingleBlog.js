@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSinglePost } from '../../../lib/api';
 import { formatDate } from '../../../lib/utils';
+import Article from '../Article/Article';
+import Blog from '../Blog';
+import PostWidget from '../PostsWidget/PostWidget';
 import styles from './SingleBlog.module.scss';
 
 const SingleBlog = () => {
@@ -13,6 +17,7 @@ const SingleBlog = () => {
   useEffect(() => {
     async function getPost() {
       const myPost = await getSinglePost(id);
+      console.log(myPost);
       setPost(myPost);
       setLoading(false);
     }
@@ -26,19 +31,13 @@ const SingleBlog = () => {
 
   return (
     <div className={styles.Blog}>
-      <header><h1>Single Blog page</h1></header>
-      <article>
-        <div>
-          <h1 >{post.title}</h1>
-          <p>{formatDate(post.date)}</p>
-        </div>
-        <div
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-        <footer>
-          <Link to="/blog">Back </Link>
-        </footer>
-      </article>
+      <PageHeader label={post.title} backgroundImg={post.featuredImage.node.sourceUrl} />
+      <div className={styles.Layout}>
+        <main><Article post={post} /></main>
+        <aside>
+          <PostWidget />
+        </aside>
+      </div>
     </div>
   )
 }
