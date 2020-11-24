@@ -26,12 +26,11 @@
                 left: 50%;
                 transform: translateX(-50%);
                 width: 100%;
-                max-width: 1200px;
+                max-width: 1024px;
                 height: 100%;
                 div {
                     @include media($laptop) {
                         width: 70%;
-                        margin: 0 auto;
                     }
                     h6 {
                         color: $theme-color;
@@ -95,7 +94,7 @@
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
-        max-width: 1200px;
+        max-width: 1024px;
         @include media($laptop) {
             width: 70%;
         }
