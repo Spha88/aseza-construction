@@ -18,6 +18,7 @@
         left: 0;
         width: 100%;
         height: 100%;
+        @include transition;
     }
     h2 {
         position: relative;
@@ -35,6 +36,27 @@
             border-radius: 5px;
             left: 50%;
             transform: translateX(-50%);
+        }
+    }
+    ul {
+        position: relative;
+        z-index: 2;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        text-transform: capitalize;
+        li {
+            a {
+                display: inline-block;
+                padding: 0 5px;
+            }
+        }
+    }
+    &:hover {
+        .BackDrop {
+            background: rgba(0, 0, 0, 0.829);
         }
     }
 }

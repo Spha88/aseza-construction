@@ -26,7 +26,11 @@ const SingleProject = () => {
 
     return (
         <div className={styles.Project}>
-            <PageHeader label="Projects" backgroundImg={project.projectImages.image1.sourceUrl} />
+            <PageHeader
+                label="Projects"
+                singlePage={project.title}
+                backgroundImg={project.projectImages.image1.sourceUrl}
+            />
 
             <div className={styles.ProjectContent}>
                 <h2>{project.title}</h2>

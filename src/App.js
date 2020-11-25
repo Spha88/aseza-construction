@@ -21,9 +21,6 @@ function App() {
             <Route path="/blog/:id" >
               <SingleBlog />
             </Route>
-            <Route path="/page/:id" exact>
-              <SinglePage />
-            </Route>
             <Route path="/blog">
               <Blog />
             </Route>
@@ -32,6 +29,9 @@ function App() {
             </Route>
             <Route path="/projects">
               <Projects />
+            </Route>
+            <Route path="/page/:id" exact>
+              <SinglePage />
             </Route>
             <Route path="/" exact>
               <Home />

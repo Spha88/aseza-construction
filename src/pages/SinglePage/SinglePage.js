@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getSinglePage } from '../../lib/api';
 import styles from './SinglePage.module.scss';
+import PageHeader from '../../components/UI/PageHeader/PageHeader';
+import Container from '../../components/UI/Container';
 
 const SinglePage = () => {
 
@@ -26,24 +28,27 @@ const SinglePage = () => {
 
     return (
         <div className={styles.SinglePage}>
-            <h2 className={styles.PageTitle}>{page.title}</h2>
+            <PageHeader
+                label={page.title}
+                backgroundImg={page.featuredImage && page.featuredImage.node.sourceUrl} />
 
-            { page.featuredImage &&
-                <figure>
-                    <img
-                        src={page.featuredImage.node.sourceUrl}
-                        alt={page.featuredImage.node.altText ? page.featuredImage.node.altText : ""} />
+            <Container>
+                {page.featuredImage &&
+                    <figure>
+                        <img
+                            src={page.featuredImage.node.sourceUrl}
+                            alt={page.featuredImage.node.altText ? page.featuredImage.node.altText : ""} />
 
-                    {page.featuredImage.node.caption && (
-                        <figcaption dangerouslySetInnerHTML={{ __html: page.featuredImage.node.caption }} />
-                    )}
-                </figure>
-            }
-
-            <div dangerouslySetInnerHTML={{ __html: page.content }} />
-            <footer>
-                <Link to="/">Back</Link>
-            </footer>
+                        {page.featuredImage.node.caption && (
+                            <figcaption dangerouslySetInnerHTML={{ __html: page.featuredImage.node.caption }} />
+                        )}
+                    </figure>
+                }
+                <div dangerouslySetInnerHTML={{ __html: page.content }} />
+                <footer>
+                    <Link to="/">Back</Link>
+                </footer>
+            </Container>
         </div>
     )
 }

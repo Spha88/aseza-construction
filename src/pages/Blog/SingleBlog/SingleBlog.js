@@ -32,7 +32,7 @@ const SingleBlog = () => {
 
   return (
     <div className={styles.Blog}>
-      <PageHeader label={post.title} backgroundImg={post.featuredImage.node.sourceUrl} />
+      <PageHeader label="news" singlePage={post.title} backgroundImg={post.featuredImage.node.sourceUrl} />
       <div className={styles.Layout}>
         <main><Article post={post} /></main>
         <aside>
