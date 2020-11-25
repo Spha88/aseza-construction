@@ -3,7 +3,7 @@
 .Header {
     position: relative;
     margin: 0 auto;
-    padding: 10rem 0 5rem;
+    padding: 10rem 0 5rem; 
     margin-bottom: 10px;
     width: 100%;
     text-align: center;
@@ -16,6 +16,9 @@
     }
     @include media($tablet) {
         margin-bottom: 5px;
+    }
+    @include media($mobile) {
+        padding: 7rem 1rem 3rem;
     }
     .BackDrop {
         background: rgba(0, 0, 0, 0.712);
@@ -57,6 +60,11 @@
             a {
                 display: inline-block;
                 padding: 0 5px;
+            }
+            @include media($mobile) {
+                &:last-child {
+                    display: none;
+                }
             }
         }
     }
