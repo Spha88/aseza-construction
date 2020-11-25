@@ -15,7 +15,6 @@ const Blog = () => {
     useEffect(() => {
         async function fetchPosts() {
             const myPosts = await getPosts();
-            console.log(myPosts);
             setPosts(myPosts);
             setLoading(false);
         }

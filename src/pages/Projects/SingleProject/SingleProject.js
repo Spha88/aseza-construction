@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import ProjectSlide from '../../../components/ProjectImagesSlide/ProjectSlide';
 import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSingleProject } from '../../../lib/api';
+import ProjectDetails from './ProjectDetails/ProjectDetails';
 import styles from './SingleProject.module.scss';
 
 const SingleProject = () => {
@@ -26,23 +27,47 @@ const SingleProject = () => {
 
     return (
         <div className={styles.Project}>
+
+            {/** Page Header */}
             <PageHeader
                 label="Projects"
                 singlePage={project.title}
                 backgroundImg={project.projectImages.image1.sourceUrl}
             />
 
+            {/** Project Content */}
             <div className={styles.ProjectContent}>
-                <h2>{project.title}</h2>
+                <div className={styles.Collage}>
+                    <div className={styles.TwoImages}>
+                        <div className={styles.Image}
+                            style={{ backgroundImage: `url(${project.projectImages.image2.sourceUrl})` }}></div>
+                        <div className={styles.Image}
+                            style={{ backgroundImage: `url(${project.projectImages.image3.sourceUrl})` }}></div>
+                    </div>
+                    <div className={styles.FeatureImg} style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}></div>
+                </div>
+
+                <div className={styles.Layout}>
+
+                    <div className={styles.Aside}>
+                        <h2>{project.title}</h2>
+                        <ProjectDetails details={project.projectDetails} />
+                    </div>
+
+                    <div className={styles.Main}>
+                        <div
+                            className={styles.Content}
+                            dangerouslySetInnerHTML={{ __html: project.content }} />
+                    </div>
+                </div>
+
                 <ProjectSlide slides={project.projectImages} />
-                <div
-                    className={styles.Content}
-                    dangerouslySetInnerHTML={{ __html: project.content }} />
 
                 <footer>
                     <Link to="/projects">Back</Link>
                 </footer>
             </div>
+
         </div>
 
     )

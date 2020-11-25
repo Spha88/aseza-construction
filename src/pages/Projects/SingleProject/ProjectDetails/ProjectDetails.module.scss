@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/mixin.scss';
+
+.Details {
+    padding: 0;
+    list-style-type: none;
+    padding-right: 2rem;
+    li {
+        margin-bottom: 20px;
+        font-weight: 700;
+        span {
+            font-weight: $regular;
+        }
+    }
+}

@@ -18,7 +18,6 @@ const SingleBlog = () => {
   useEffect(() => {
     async function getPost() {
       const myPost = await getSinglePost(id);
-      console.log(myPost);
       setPost(myPost);
       setLoading(false);
     }

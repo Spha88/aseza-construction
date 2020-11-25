@@ -17,7 +17,7 @@ const PageHeader = ({ backgroundImg, label, singlePage }) => {
     return (
         <header className={styles.Header} style={{ backgroundImage: `url(${backgroundImg})` }}>
             <div className={styles.BackDrop}></div>
-            <h2>{label}</h2>
+            <h2>{singlePage ? singlePage : label}</h2>
             <ul>
                 <li><Link to="/">Home</Link>/</li>
                 <li><Link to={`/${parentPage}`}>{label}</Link></li>

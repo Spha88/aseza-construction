@@ -27,7 +27,6 @@ const ProjectSlide = () => {
 
         const fetchTestimonials = async () => {
             const data = await getTestimonials();
-            console.log(data);
             setState(state => {
                 return {
                     ...state,

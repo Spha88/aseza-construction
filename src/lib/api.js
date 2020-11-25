@@ -67,7 +67,6 @@ export const getPosts = async () => {
     }
     `
   const data = await fetchData(query);
-  console.log(data.posts.nodes);
   return data.posts.nodes;
 }
 
@@ -90,7 +89,6 @@ export const getLatestPosts = async () => {
     }
   `
   const data = await fetchData(query);
-  console.log(data.posts.nodes);
   return data.posts.nodes;
 }
 
@@ -237,6 +235,17 @@ export const getSingleProject = async (slug) => {
         content
         date
         modified
+        projectDetails {
+          architecture
+          company
+          dateCompleted
+          dateStarted
+          employees
+          fieldGroupName
+          location
+          subtitle
+          surfaceArea
+        }
         projectImages {
           image1 {
             caption
@@ -251,6 +260,30 @@ export const getSingleProject = async (slug) => {
             sourceUrl
           }
           image4 {
+            sourceUrl
+            caption
+          }
+          image5 {
+            sourceUrl
+            caption
+          }
+          image6 {
+            sourceUrl
+            caption
+          }
+          image7 {
+            sourceUrl
+            caption
+          }
+          image8 {
+            sourceUrl
+            caption
+          }
+          image9 {
+            sourceUrl
+            caption
+          }
+          image10 {
             sourceUrl
             caption
           }
