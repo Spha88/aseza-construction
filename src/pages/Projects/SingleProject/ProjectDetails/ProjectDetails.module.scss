@@ -11,4 +11,9 @@
             font-weight: $regular;
         }
     }
+    @include media($mobile) {
+        li {
+            margin-bottom: 10px;
+        }
+    }
 }
