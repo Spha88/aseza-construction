@@ -34,6 +34,9 @@
                             margin-right: 10px;
                         }
                     }
+                    @include media($tablet) {
+                        padding-left: 1rem;
+                    }
                 }
             }
         }

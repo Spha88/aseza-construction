@@ -1,4 +1,5 @@
 @import '../../assets/styles/mixin.scss';
+.BlogPage {
 
 .Blogs {
     max-width: 1220px;
@@ -7,7 +8,7 @@
     flex-wrap: wrap;
     .Blog {
         width: 33.33%;
-        padding: 10px;
+        padding: 10px 10px 10px;
         padding-bottom: 2rem;
         .FeatureImg {
             width: 100%;
@@ -38,4 +39,22 @@
             }
         }
     }
+    @include media($tablet) {
+        .Blog {
+            width: 50%;
+        }
+    }
+    @include media($mobile) {
+        .Blog {
+            width: 100%;
+            padding-bottom: 1rem;
+            .PostBody {
+                background: $theme-grey;
+                padding-bottom: 2rem;
+            }
+        }
+    }
+}
+
+
 }

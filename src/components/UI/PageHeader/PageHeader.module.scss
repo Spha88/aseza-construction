@@ -62,7 +62,7 @@
                 padding: 0 5px;
             }
             @include media($mobile) {
-                &:last-child {
+                &:nth-child(3) {
                     display: none;
                 }
             }

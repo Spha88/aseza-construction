@@ -26,7 +26,7 @@ const Blog = () => {
     if (!posts) return <h2>No posts</h2>
 
     return (
-        <div>
+        <div className={styles.BlogPage}>
             <PageHeader label="News" backgroundImg={bg} />
             <div className={styles.Blogs}>
                 {posts.map(post => (

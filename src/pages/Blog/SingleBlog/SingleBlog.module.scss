@@ -1,15 +1,15 @@
 @import '../../../assets/styles/mixin.scss';
 .Blog {
     width: 100%;
-    margin: 0 auto;
     text-align: left;
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
     .Layout {
-        width: 1024px;
+        width: 100%;
+        max-width: 1024px;
         margin: 0 auto;
-        padding: 0 0 4rem;
+        padding: 1rem 0 4rem;
         display: flex;
         main {
             width: 70%;
@@ -18,10 +18,37 @@
         aside {
             width: 30%;
         }
+        @include media($laptop){
+            padding: 1rem 1rem 4rem;
+            main {
+                padding-right: 2rem;
+            }
+        }
+        @include media($tablet) {
+            aside {
+                width: 35%;
+            }
+            main {
+                width: 65%;
+                padding-right: 1.5rem;
+            }
+        }
+        @include media($mobile) {
+            flex-wrap: wrap;
+            padding: 1rem 1rem;
+            aside {
+                width: 100%;
+            }
+            main {
+                width: 100%;
+                padding: 0;
+            };
+        }
+
     }
     footer {
         text-align: center;
-        margin-top: 2rem;
+        padding: 1rem 1rem 2rem;
         a {
             display: inline-block;
             padding: .5rem 2rem;

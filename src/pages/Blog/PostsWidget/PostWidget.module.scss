@@ -1,8 +1,12 @@
 @import '../../../assets/styles/mixin.scss';
 
 .PostWidget {
+    @include media($mobile) {
+        margin-top: 2rem;
+    }
     .Title {
         text-align: left;
+        margin-top: 0;
     }
     .Posts {
         list-style-type: none;
@@ -32,6 +36,9 @@
                             width: 20px;
                             margin-right: 10px;
                         }
+                    }
+                    @include media($tablet) {
+                        padding-left: 1rem;
                     }
                 }
             }

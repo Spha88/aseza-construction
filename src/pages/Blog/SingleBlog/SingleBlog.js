@@ -39,6 +39,9 @@ const SingleBlog = () => {
           <ProjectsWidget />
         </aside>
       </div>
+      <footer>
+        <Link to="/blog">Back </Link>
+      </footer>
     </div>
   )
 }

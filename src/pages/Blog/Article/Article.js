@@ -20,9 +20,6 @@ const Article = ({ post }) => {
                 className={styles.BlogContent}
                 dangerouslySetInnerHTML={{ __html: post.content }}
             />
-            <footer>
-                <Link to="/blog">Back </Link>
-            </footer>
         </article>
     )
 }
