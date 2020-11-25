@@ -38,9 +38,12 @@ const Nav = () => {
         <React.Fragment>
             <ContactDetails />
             <nav className={styles.Nav} id="top-page-nav">
+                <div className={styles.Backdrop}></div>
                 {loading ? (<h2>Loading...</h2>) : (
+
                     <div className={styles.NavContent}>
                         <h2 className={styles.Logo}>Aseza</h2>
+
                         <ul className={styles.NavItems}>
 
                             <li className={styles.Item}>

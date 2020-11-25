@@ -19,5 +19,13 @@
                 fill: $theme-color !important;
             }
         }
+        @include media($mobile) {
+            flex-wrap: wrap;
+            li {
+                &:first-child{
+                    display: none;
+                }
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
     @include transition;
     .NavContent {
         display: flex;
@@ -15,6 +16,8 @@
         margin: 0 auto;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+        z-index: 10;
         .Logo {
             margin: 0;
             padding: 0;
@@ -28,6 +31,9 @@
             margin: 0;
             color: $theme-white;
             font-size: 13px;
+            @include media($tablet) {
+                display: none;
+            }
             .Item {
                 padding: 0 1rem;
                 
@@ -54,7 +60,7 @@
         }
     }
     &.Active {
-        background: rgba(0, 0, 0, 0.726);
+        background: rgba(0, 0, 0, 0.904);
         top: 0;
     }
 }

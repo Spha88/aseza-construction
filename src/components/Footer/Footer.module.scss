@@ -75,5 +75,14 @@
                 }
             }
         }
+        @include media($mobile) {
+            flex-wrap: wrap;
+            .FooterSection {
+                width: 100%;
+            }
+            .Nav {
+                display: none;
+            }
+        }
     }
 }

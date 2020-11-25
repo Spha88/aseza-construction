@@ -5,13 +5,22 @@
     .Projects {
         max-width: 1220px;
         margin: 0 auto;
-        padding-bottom: 5rem;
+        padding-bottom: 5px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        @include media($tablet) {
+            padding: 0 5px 5px 5px;
+        }
         .Project {
             width: 33.33%;
             padding: 10px;
+            @include media($tablet) {
+                padding: 5px;
+            }
+            @include media($mobile) {
+                width: 100%;
+            }
             .ProjectImg {
                 position: relative;
                 width: 100%;

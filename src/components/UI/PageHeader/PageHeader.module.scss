@@ -4,13 +4,19 @@
     position: relative;
     margin: 0 auto;
     padding: 10rem 0 5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 10px;
     width: 100%;
     text-align: center;
     background: $theme-black;
     color: $theme-color;
     background-size: cover;
     background-position: center;
+    @include media($laptop) {
+        margin-bottom: 10px;
+    }
+    @include media($tablet) {
+        margin-bottom: 5px;
+    }
     .BackDrop {
         background: rgba(0, 0, 0, 0.712);
         position: absolute;

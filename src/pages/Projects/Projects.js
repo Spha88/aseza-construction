@@ -28,11 +28,13 @@ const Projects = () => {
             { loading ? (<h2>Loading..</h2>) : (
                 <div className={styles.Projects}>
                     {projects.map(project => (
-                        <div key={project.slug} className={styles.Project}>
+                        <div
+                            key={project.slug}
+                            className={styles.Project}>
 
                             <div className={styles.ProjectImg}
-                                style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}
-                            >
+                                style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}>
+
                                 <div className={styles.DropShadow}></div>
                                 <div className={styles.Details}>
                                     <h2>{project.title}</h2>
