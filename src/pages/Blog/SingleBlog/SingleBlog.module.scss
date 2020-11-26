@@ -2,6 +2,7 @@
 .Blog {
     width: 100%;
     text-align: left;
+    padding-bottom: 2rem;
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
@@ -9,7 +10,7 @@
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
-        padding: 1rem 0 4rem;
+        padding: 1rem 0 1rem;
         display: flex;
         main {
             width: 70%;
@@ -19,7 +20,7 @@
             width: 30%;
         }
         @include media($laptop){
-            padding: 1rem 1rem 4rem;
+            padding: 1rem 1rem 1rem;
             main {
                 padding-right: 2rem;
             }
@@ -45,20 +46,5 @@
             };
         }
 
-    }
-    footer {
-        text-align: center;
-        padding: 1rem 1rem 2rem;
-        a {
-            display: inline-block;
-            padding: .5rem 2rem;
-            border: 1px solid;
-            text-decoration: none;
-            transition: all 500ms ease;
-            &:hover {
-                background: rgb(2, 102, 168);
-                color: #fff;
-            }
-        }
     }
 }

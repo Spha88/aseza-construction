@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import ProjectSlide from '../../../components/ProjectImagesSlide/ProjectSlide';
+import ArticleFooter from '../../../components/UI/ArticleFooter/ArticleFooter';
 import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSingleProject } from '../../../lib/api';
 import ProjectDetails from './ProjectDetails/ProjectDetails';
@@ -63,9 +64,7 @@ const SingleProject = () => {
 
                 <ProjectSlide slides={project.projectImages} />
 
-                <footer>
-                    <Link to="/projects">Back</Link>
-                </footer>
+                <ArticleFooter to="/projects" label="Back" />
             </div>
 
         </div>

@@ -6,15 +6,20 @@
     bottom: -30px;
     width: 100%;
     z-index: 2;
+    @include media($tablet) {
+        bottom: -70px;
+    }
+    @include media($mobile) {
+        bottom: -140px;
+    }
     .Container {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 2rem 1rem;
+        padding: 2rem 0;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
         .Content {
             color: $theme-white;
             h2 {
@@ -33,14 +38,21 @@
             background: $theme-white;
             font-weight: $semi-bold;
             padding: 10px 30px;
+            display: inline-block;
         }
         @include media($laptop) {
             width: 70%;
+            flex-wrap: wrap;
             .Content {
+                margin-bottom: 1.4rem;
                 h2 {
                     font-size: 25px;
                 }
             }
+        }
+        @include media($mobile) {
+            width: 100%;
+            padding: 2rem 1rem;
         }
     }
 }

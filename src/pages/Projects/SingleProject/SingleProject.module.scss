@@ -3,7 +3,7 @@
 .Project {
     width: 100%;
     margin: 0 auto;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
 
     .ProjectContent {
         max-width: 1024px;
@@ -113,20 +113,6 @@
                     width: 100%;
                     margin: 0;
                     padding: 0 10px;
-                }
-            }
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1rem 1rem;
-            a {
-                display: inline-block;
-                border: 1px solid $theme-color;
-                padding: 8px 30px;
-                @include transition;
-                &:hover {
-                    background-color: $theme-color;
                 }
             }
         }

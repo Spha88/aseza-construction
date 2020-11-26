@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import ArticleFooter from '../../../components/UI/ArticleFooter/ArticleFooter';
 import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSinglePost } from '../../../lib/api';
 import Article from '../Article/Article';
@@ -37,9 +38,7 @@ const SingleBlog = () => {
           <ProjectsWidget />
         </aside>
       </div>
-      <footer>
-        <Link to="/blog">Back </Link>
-      </footer>
+      <ArticleFooter to="/blog" label="Back" />
     </div>
   )
 }
