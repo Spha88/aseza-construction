@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSinglePost } from '../../../lib/api';
-import { formatDate } from '../../../lib/utils';
 import Article from '../Article/Article';
-import Blog from '../Blog';
 import PostWidget from '../PostsWidget/PostWidget';
-import ProjectsWidget from '../ProjectsWidget/ProjecstWidget';
+import ProjectsWidget from '../ProjectsWidget/ProjectsWidget';
 import styles from './SingleBlog.module.scss';
 
 const SingleBlog = () => {
