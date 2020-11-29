@@ -10,7 +10,7 @@
         bottom: -70px;
     }
     @include media($mobile) {
-        bottom: -140px;
+        bottom: -100px;
     }
     .Container {
         width: 100%;
@@ -52,7 +52,12 @@
         }
         @include media($mobile) {
             width: 100%;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
+            .Content {
+                h2 {
+                    font-size: 18px;
+                }
+            }
         }
     }
 }

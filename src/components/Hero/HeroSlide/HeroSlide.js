@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 // import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './HeroSlide.module.scss';
 import mySlides from './slides';
 
@@ -115,8 +116,8 @@ const HeroSlide = () => {
             </div>
 
             <div className={styles.CallToAction}>
-                <a href="/contact">Our Projects</a>
-                <a href="/quote">Contact Us</a>
+                <Link to="/projects">Our Projects</Link>
+                <Link to="/page/contact-page">Contact Us</Link>
             </div>
 
             {/** Number of Current slide and Total number of slides indicator */}

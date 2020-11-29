@@ -128,6 +128,7 @@
             font-size: 13px;
             font-weight: $semi-bold;
             transition: all 300ms ease-in-out;
+            background: rgba(0, 0, 0, 0.562);
             &:hover {
                 background: $theme-color;
             }

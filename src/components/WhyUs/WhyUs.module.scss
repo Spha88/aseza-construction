@@ -44,6 +44,12 @@
                 }
             }
         }
+        @include media($tablet) {
+            flex-wrap: wrap;
+            .FeatureImg {
+                width: 100%;
+            }
+        }
     }
     
 }
