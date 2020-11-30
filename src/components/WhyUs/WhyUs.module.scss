@@ -6,7 +6,7 @@
     }
     .Row {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; 
         padding: 3rem 0;
         .FeatureImg {
             width: 40%;
@@ -15,9 +15,6 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            @include media($laptop) {
-                height: 390px;
-            }
         }
         .Reasons {
             width: 55%;
@@ -25,9 +22,6 @@
             justify-content: space-between;
             flex-wrap: wrap;
             padding-left: 2rem;
-            @include media($laptop) {
-                width: 58%;
-            }
             .Reason {
                 width: 47%;
                 padding: 0 0 1rem 0;
@@ -44,10 +38,38 @@
                 }
             }
         }
+        @include media($laptop) {
+            .FeatureImg {
+                height: 390px;
+            }
+            .Reasons {
+                width: 58%;
+            }
+        }
         @include media($tablet) {
+
             flex-wrap: wrap;
+            padding: 2rem 0 1rem;
             .FeatureImg {
                 width: 100%;
+                height: 200px;
+            }
+            .Reasons { 
+                width: 100%;
+                padding: 1rem 0 0 0;
+                .Reason {
+                    width: 50%;
+                    padding:  1rem 2rem;
+                }
+            }
+        }
+        @include media($mobile) {
+            .Reasons {
+                flex-wrap: wrap;
+                .Reason {
+                    width: 100%;
+                    padding: 1rem 1rem;
+                }
             }
         }
     }
