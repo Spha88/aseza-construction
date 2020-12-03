@@ -1,0 +1,67 @@
+@import '../../assets/styles/mixin.scss';
+
+.BlogsFrontPage {
+    padding: 7rem 0 4rem 0;
+    background-color: $theme-grey;
+    .Blogs {
+        max-width: 1220px;
+        padding-top: 1rem;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        .Blog {
+            width: 33.33%;
+            padding: 10px 10px 10px;
+            padding-bottom: 2rem;
+            .FeatureImg {
+                width: 100%;
+                background-size: cover;
+                height: 250px;
+                box-shadow: 34px 0 54px rgba(0, 0, 0, 0.2);
+            }
+            .PostBody {
+                padding: 0;
+                margin: 0;
+                .MetaData {
+                    color: $text-color;
+                    padding-top: 15px;
+                    p {
+                        margin: 5px 0;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        font-size: 13px;
+                        svg {
+                            width: 18px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+                h2 {
+                    margin: 0;
+                    padding: 0;
+                    font-size: 18px;
+                }
+                
+                .Excerpt {
+                    p { margin: 10px 0 0 0; font-weight: $medium;}
+                }
+            }
+        }
+        @include media($tablet) {
+            .Blog {
+                width: 50%;
+            }
+        }
+        @include media($mobile) {
+            .Blog {
+                width: 100%;
+                padding-bottom: 1rem;
+                .PostBody {
+                    background: $theme-grey;
+                    padding-bottom: 2rem;
+                }
+            }
+        }
+    }
+}

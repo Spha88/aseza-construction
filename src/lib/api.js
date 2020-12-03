@@ -79,9 +79,10 @@ export const getLatestPosts = async () => {
           date
           title
           slug
+          content
           featuredImage {
             node {
-              sourceUrl(size: THUMBNAIL)
+              sourceUrl(size: MEDIUM_LARGE)
             }
           }
         }

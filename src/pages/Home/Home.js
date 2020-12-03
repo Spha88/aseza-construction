@@ -6,6 +6,7 @@ import Stats from '../../components/Stats/Stats';
 import WhyUs from '../../components/WhyUs/WhyUs';
 import Testimonials from '../../components/Testimonials/Testimonials';
 import styles from './Home.module.scss';
+import BlogsFrontPage from '../../components/BlosFrontPage/BlogsFrontPage';
 
 const Home = () => {
     return (
@@ -15,7 +16,7 @@ const Home = () => {
             <WhyUs />
             <Services />
             <ProjectsSection />
-
+            <BlogsFrontPage />
             <Testimonials />
         </div>
     )

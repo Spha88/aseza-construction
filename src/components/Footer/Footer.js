@@ -30,7 +30,7 @@ const Footer = () => {
 
                     <div className={styles.Nav + ' ' + styles.FooterSection}>
                         <ul>
-                            <li><NavLink activeClassName={styles.Active} to="/">Home</NavLink></li>
+                            <li><NavLink activeClassName={styles.Active} to="/" exact>Home</NavLink></li>
                             <li><NavLink activeClassName={styles.Active} to="/projects">Projects</NavLink></li>
                             <li><NavLink activeClassName={styles.Active} to="/contact-us">Contact Us</NavLink> </li>
                             <li><NavLink activeClassName={styles.Active} to="/blog">News</NavLink></li>
@@ -46,6 +46,7 @@ const Footer = () => {
                             <li><a href="/linkedin.com">LinkedIn</a></li>
                         </ul>
                     </div>
+
                 </div>
             </Container>
         </footer>
