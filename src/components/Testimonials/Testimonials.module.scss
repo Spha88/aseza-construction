@@ -50,6 +50,9 @@
                         left: 50%;
                         transform: translateX(-50%)
                     }
+                    @include media($mobile) {
+                        border: none;
+                    }
                 }
                 h2 { font-size: 20px; margin: 0}
                 h3 { margin: 5px 0; text-transform: uppercase; font-weight: $light;}
@@ -77,9 +80,6 @@
         svg {
             width: 25px;
         }
-        @include media($laptop) {
-
-        }
     }
 
     .PrevBtn {
@@ -87,11 +87,17 @@
         @include media($laptop) {
             left: 5%;
         }
+        @include media($mobile) {
+            left: 0;
+        }
     }
     .NextBtn {
         right: 10%;
         @include media($laptop) {
             right: 5%;
+        }
+        @include media($mobile) {
+            right: 0;
         }
     }
 
