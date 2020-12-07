@@ -46,11 +46,10 @@ const Projects = () => {
                                 </div>
                             </div>
                         </div>
-
                     ))}
-
                 </div>
             )}
+
             <Loader loading={loading} />
         </div>
     )
