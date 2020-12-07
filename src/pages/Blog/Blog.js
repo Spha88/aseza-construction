@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
+
 import { getPosts } from '../../lib/api';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import bg from '../../assets/images/slide1.jpg';
-
 import styles from './Blog.module.scss';
 import { formatDate, shortenString } from '../../lib/utils';
 import Loader from '../../components/UI/Loader/Loader';
@@ -18,6 +19,7 @@ const Blog = () => {
             const myPosts = await getPosts();
             setPosts(myPosts);
             setLoading(false);
+            scroll.scrollToTop({ smooth: "easeOutElastic", delay: 500, duration: 1000 });
         }
         fetchPosts();
     }, [])

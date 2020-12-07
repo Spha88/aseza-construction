@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
+
 import ArticleFooter from '../../../components/UI/ArticleFooter/ArticleFooter';
 import PageHeader from '../../../components/UI/PageHeader/PageHeader';
 import { getSinglePost } from '../../../lib/api';
 import Article from '../Article/Article';
 import PostWidget from '../PostsWidget/PostWidget';
 import ProjectsWidget from '../ProjectsWidget/ProjectsWidget';
+import Loader from '../../../components/UI/Loader/Loader';
 import styles from './SingleBlog.module.scss';
 
 const SingleBlog = () => {
@@ -19,26 +22,28 @@ const SingleBlog = () => {
       const myPost = await getSinglePost(id);
       setPost(myPost);
       setLoading(false);
+      scroll.scrollToTop({ smooth: "easeOutElastic", delay: 500, duration: 1000 });
     }
-
     getPost();
   }, [id])
 
-  if (loading) return <h2>Loading ...</h2>
-
-  if (!post) return <h2>No post found</h2>
-
   return (
     <div className={styles.Blog}>
-      <PageHeader label="news" singlePage={post.title} backgroundImg={post.featuredImage.node.sourceUrl} />
-      <div className={styles.Layout}>
-        <main><Article post={post} /></main>
-        <aside>
-          <PostWidget />
-          <ProjectsWidget />
-        </aside>
-      </div>
-      <ArticleFooter to="/blog" label="Back" />
+      <PageHeader
+        label="news" singlePage={post && post.title} backgroundImg={post && post.featuredImage.node.sourceUrl} />
+      { !loading &&
+        <React.Fragment>
+          <div className={styles.Layout}>
+            <main><Article post={post} /></main>
+            <aside>
+              <PostWidget />
+              <ProjectsWidget />
+            </aside>
+          </div>
+          <ArticleFooter to="/blog" label="Back" />
+        </React.Fragment>
+      }
+      <Loader loading={loading} />
     </div>
   )
 }

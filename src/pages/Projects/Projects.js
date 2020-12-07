@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
+
 import { getProjects } from '../../lib/api';
 import bg from '../../assets/images/slide3.jpg';
-
 import styles from './Projects.module.scss';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import Loader from '../../components/UI/Loader/Loader';
@@ -17,6 +18,7 @@ const Projects = () => {
             const projects = await getProjects();
             setProjects(projects);
             setLoading(false);
+            scroll.scrollToTop({ smooth: "easeOutElastic", delay: 500, duration: 1000 });
         }
         fetchProjects();
     }, [])
