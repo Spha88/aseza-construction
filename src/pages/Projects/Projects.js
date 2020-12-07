@@ -5,6 +5,7 @@ import bg from '../../assets/images/slide3.jpg';
 
 import styles from './Projects.module.scss';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
+import Loader from '../../components/UI/Loader/Loader';
 
 const Projects = () => {
 
@@ -25,7 +26,7 @@ const Projects = () => {
 
             <PageHeader label="Projects" backgroundImg={bg} />
 
-            { loading ? (<h2>Loading..</h2>) : (
+            { !loading && (
                 <div className={styles.Projects}>
                     {projects.map(project => (
                         <div
@@ -41,14 +42,16 @@ const Projects = () => {
                                     <h3>{project.projectDetails.subtitle}</h3>
                                     <Link to={`/projects/${project.slug}`}>
                                         details
-                                    </Link>
+                                </Link>
                                 </div>
                             </div>
                         </div>
+
                     ))}
+
                 </div>
             )}
-
+            <Loader loading={loading} />
         </div>
     )
 }

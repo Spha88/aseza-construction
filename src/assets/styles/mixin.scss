@@ -48,3 +48,10 @@ $mobile: 425px;
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* Display element flex and center horizontal and vertical */
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
