@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     .Blog {
         width: 33.33%;
-        padding: 10px 10px 10px;
+        padding: 15px 15px 10px;
         padding-bottom: 2rem;
         .FeatureImg {
             width: 100%;
@@ -16,23 +16,31 @@
             height: 250px;
         }
         .PostBody {
-            padding: 1rem;
+            padding: 1rem 0;
             margin: 0;
             h2 {
                 margin: 0;
                 padding: 0;
+                font-size: 18px;
             }
             .MetaData {
                 color: $theme-color;
-                p {
+                ul {
                     margin: 8px 0 0 0;
-                    font-style: italic;
+                    padding: 0;
+                    list-style-type: none;
                     display: flex;
-                    justify-content: center;
+                    justify-content: left;
                     align-items: center;
-                    svg {
-                        width: 20px;
-                        margin-right: 5px;
+                    font-size: 15px;
+                    li {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: left;
+                        svg {
+                            width: 20px;
+                            margin-right: 5px;
+                        }
                     }
                 }
             }
@@ -51,8 +59,7 @@
             width: 100%;
             padding-bottom: 1rem;
             .PostBody {
-                background: $theme-grey;
-                padding-bottom: 2rem;
+                padding-bottom: 1rem;
             }
         }
     }
