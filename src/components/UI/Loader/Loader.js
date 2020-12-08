@@ -3,8 +3,10 @@ import styles from './Loader.module.scss'
 
 const Loader = ({ loading }) => {
     return (
-        <div className={`${styles.Loader} ${!loading && styles.CompleteLoading}`}>Loading ... </div>
+        <div className={`${styles.Loader} ${!loading && styles.CompleteLoading}`}>
+            <div className={styles.Spinner}></div>
+        </div>
     )
 }
 
-export default Loader
+export default Loader 

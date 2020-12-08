@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styles from './App.module.scss';
+
 import Home from './pages/Home/Home';
 import Blog from './pages/Blog/Blog';
 import SingleBlog from './pages/Blog/SingleBlog/SingleBlog';
+import AboutPage from './pages/About/About';
 import SinglePage from './pages/SinglePage/SinglePage';
 import Nav from './components/Nav/Nav';
 import Projects from './pages/Projects/Projects';
@@ -24,18 +26,28 @@ function App() {
             <Route path="/blog">
               <Blog />
             </Route>
+
             <Route path="/projects/:slug">
               <SingleProject />
             </Route>
             <Route path="/projects">
               <Projects />
             </Route>
+
+            {/** for about page */}
+            <Route path="/page/about-page">
+              <AboutPage />
+            </Route>
+
+            {/** For any other page - fallback for page with no template*/}
             <Route path="/page/:id" exact>
               <SinglePage />
             </Route>
+
             <Route path="/" exact>
               <Home />
             </Route>
+
           </Switch>
         </main>
         <Footer />

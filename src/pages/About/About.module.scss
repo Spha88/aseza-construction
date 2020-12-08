@@ -1,0 +1,95 @@
+@import '../../assets/styles/mixin.scss';
+.AboutPage {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    text-align: left;
+    .AboutContent {
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+        padding-top: 2rem;
+        .AboutParagraph {
+            width:60%;
+            padding-right: 4rem;
+            .Signature {
+                padding-top: 1rem;
+                .SignatureImg {
+                    width: 100px;
+                    height: 60px;
+                    background: grey;
+                }
+                h3 {
+                    margin: 10px 0 0 0;
+                }
+                h5 {
+                    color: grey;
+                    font-weight: $light;
+                    margin: 0;
+                }
+            }
+        }
+        .AboutFeatureImg {
+           width: 40%;
+           display: flex;
+           justify-content: center;
+           padding-top: 16px;
+            .Img {
+                width: 100%;
+                height: 300px;
+                background-size: cover;
+                background-position: center center;
+            }
+        }
+    }
+    .Services {
+        display: flex;
+        margin-top: 3rem;
+        .Lead {
+            width: 50%;
+            background: $theme-black;
+            color: $theme-grey;
+            padding: 5rem;
+            div {
+                border: $theme-color 2px solid;
+                padding: 2rem 3rem;
+                text-align: center;
+                p {
+                    font-weight: $light;
+                }
+            }
+        }
+        .ServicesList {
+            width: 50%;
+            background-color: $theme-grey;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            ul {
+                list-style-type: none;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                li {
+                    width: 33.33%;
+                    display: flex;
+                    padding: 1rem;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    svg {
+                        display: block;
+                        width: 30px;
+                        stroke: $theme-color;
+                        margin-bottom: 10px;
+                    }
+                    span {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
