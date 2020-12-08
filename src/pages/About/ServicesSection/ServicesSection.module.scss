@@ -1,0 +1,52 @@
+@import '../../../assets/styles/mixin.scss';
+
+.Services {
+    display: flex;
+    margin-top: 3rem;
+    .Lead {
+        width: 50%;
+        background: $theme-black;
+        color: $theme-grey;
+        padding: 5rem;
+        div {
+            border: $theme-color 2px solid;
+            padding: 2rem 3rem;
+            text-align: center;
+            p {
+                font-weight: $light;
+            }
+        }
+    }
+    .ServicesList {
+        width: 50%;
+        background-color: $theme-grey;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            li {
+                width: 33.33%;
+                display: flex;
+                padding: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                svg {
+                    display: block;
+                    width: 30px;
+                    stroke: $theme-color;
+                    margin-bottom: 10px;
+                }
+                span {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

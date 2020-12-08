@@ -324,3 +324,29 @@ export const getTestimonials = async () => {
   const data = await fetchData(query);
   return data.testimonials.nodes;
 }
+
+// Get 4 latest projects for the front page
+export const getEmployees = async () => {
+  const query = `
+      query GetEmployees {
+        employees(first: 4, where: {orderby: {field: DATE, order: DESC}}) {
+          nodes {
+            employeeDetails {
+              firstName
+              lastName
+              position
+              image {
+                sourceUrl(size: MEDIUM)
+              }
+              facebook
+              linkedin
+              twitter
+            }
+            slug
+          }
+        }
+      }
+  `
+  const data = await fetchData(query);
+  return data.employees.nodes;
+}

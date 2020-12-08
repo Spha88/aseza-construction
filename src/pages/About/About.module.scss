@@ -4,11 +4,29 @@
     margin: 0 auto;
     padding-bottom: 3rem;
     text-align: left;
+    header.AboutHeader {
+        padding-top: 1rem;
+        h2 {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 20px;
+            &::after {
+                display: block;
+                position: absolute;
+                content: "";
+                background-color: $theme-color;
+                height: 5px;
+                border-radius: 5px;
+                width: 50%;
+                left: 0;
+                bottom: 0;
+            }
+        }
+    }
     .AboutContent {
         display: flex;
         margin: 0 auto;
         justify-content: space-between;
-        padding-top: 2rem;
         .AboutParagraph {
             width:60%;
             padding-right: 4rem;
@@ -39,56 +57,6 @@
                 height: 300px;
                 background-size: cover;
                 background-position: center center;
-            }
-        }
-    }
-    .Services {
-        display: flex;
-        margin-top: 3rem;
-        .Lead {
-            width: 50%;
-            background: $theme-black;
-            color: $theme-grey;
-            padding: 5rem;
-            div {
-                border: $theme-color 2px solid;
-                padding: 2rem 3rem;
-                text-align: center;
-                p {
-                    font-weight: $light;
-                }
-            }
-        }
-        .ServicesList {
-            width: 50%;
-            background-color: $theme-grey;
-            padding: 3rem;
-            display: flex;
-            align-items: center;
-            ul {
-                list-style-type: none;
-                padding: 0;
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                li {
-                    width: 33.33%;
-                    display: flex;
-                    padding: 1rem;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    svg {
-                        display: block;
-                        width: 30px;
-                        stroke: $theme-color;
-                        margin-bottom: 10px;
-                    }
-                    span {
-                        display: block;
-                        width: 100%;
-                        text-align: center;
-                    }
-                }
             }
         }
     }

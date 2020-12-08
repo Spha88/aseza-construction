@@ -1,0 +1,95 @@
+@import '../../../assets/styles/mixin.scss';
+
+.Team {
+    padding: 4rem 0 2rem;
+    .Header {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        h2 {
+            display: inline-block;
+            position: relative;
+            padding-bottom: 20px;
+            &::after {
+                display: block;
+                position: absolute;
+                content: "";
+                background-color: $theme-color;
+                height: 5px;
+                border-radius: 5px;
+                width: 50%;
+                left: 0;
+                bottom: 0;
+            }
+        }
+    }
+    .TeamContainer {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        .TeamMember {
+            width: 25%;
+            padding: 0 10px;
+            text-align: center;
+            .Img {
+                width: 100%;
+                height: 250px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                position: relative;
+                .LinksContainer {
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    overflow: hidden;
+                    @include transition;
+                    .Links {
+                        list-style-type: none;
+                        display: flex;
+                        padding: 0;
+                        margin: 0;
+                        justify-content: center;
+                        position: absolute;
+                        bottom: -100%;
+                        @include transition;
+                        li {
+                            margin: 5px;
+                            a {
+                                svg {
+                                    width: 30px;
+                                    height: 30px;
+                                    fill: #fff;
+                                    @include transition;
+                                    &:hover {
+                                        fill: $theme-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            h2 {
+                margin: 20px 0 5px 0;
+                font-size: 17px;
+            }
+            h5 { margin: 0; font-weight: $light;}
+            &:hover {
+                .Img {
+                    .LinksContainer {
+                        background: transparentize($color: $theme-color, $amount: .9);
+                        .Links {
+                            bottom: 5%;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
