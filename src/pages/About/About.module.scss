@@ -3,7 +3,6 @@
     width: 100%;
     margin: 0 auto;
     padding-bottom: 3rem;
-    
     header.AboutHeader {
         padding-top: 1rem;
         margin: 0 auto;
@@ -34,9 +33,10 @@
     .AboutContent {
         display: flex;
         margin: 0 auto;
+        padding-bottom: 2rem;
         justify-content: space-between;
         @include media($laptop) {
-            padding: 0 1rem;
+            padding: 0 1rem 1rem;
         }
         @include media($tablet) {
             flex-wrap: wrap-reverse;

@@ -350,3 +350,25 @@ export const getEmployees = async () => {
   const data = await fetchData(query);
   return data.employees.nodes;
 }
+
+// Get 6 Services
+export const getServices = async () => {
+  const query = `
+      query GetServices {
+        services(last: 6) {
+          nodes {
+            slug
+            title
+            serviceImages {
+              image1 {
+                sourceUrl(size: THUMBNAIL)
+              }
+            }
+          }
+        }
+      }
+  `
+  const data = await fetchData(query);
+  return data.services.nodes;
+}
+
