@@ -364,6 +364,7 @@ export const getServices = async () => {
                 sourceUrl(size: THUMBNAIL)
               }
             }
+            content(format: RENDERED)
           }
         }
       }

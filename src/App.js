@@ -10,6 +10,7 @@ import Nav from './components/Nav/Nav';
 import Projects from './pages/Projects/Projects';
 import SingleProject from './pages/Projects/SingleProject/SingleProject';
 import Footer from './components/Footer/Footer';
+import ServicesPage from './pages/Services/Services';
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
             {/** for about page */}
             <Route path="/page/about-page">
               <AboutPage />
+            </Route>
+
+            {/** Route for the ServicesPage */}
+            <Route path="/page/services">
+              <ServicesPage />
             </Route>
 
             {/** For any other page - fallback for page with no template*/}
