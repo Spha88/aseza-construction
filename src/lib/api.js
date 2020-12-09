@@ -336,7 +336,7 @@ export const getEmployees = async () => {
               lastName
               position
               image {
-                sourceUrl(size: MEDIUM)
+                sourceUrl(size: LARGE)
               }
               facebook
               linkedin

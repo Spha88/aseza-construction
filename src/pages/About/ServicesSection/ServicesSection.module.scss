@@ -3,6 +3,9 @@
 .Services {
     display: flex;
     margin-top: 3rem;
+    @include media($tablet) {
+        flex-wrap: wrap;
+    }
     .Lead {
         width: 50%;
         background: $theme-black;
@@ -14,6 +17,19 @@
             text-align: center;
             p {
                 font-weight: $light;
+            }
+        }
+        @include media($tablet) {
+            width: 100%;
+            div {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+        @include media($mobile) {
+            padding: 2rem;
+            div {
+                padding: 1rem;
             }
         }
     }
@@ -35,6 +51,7 @@
                 padding: 1rem;
                 flex-wrap: wrap;
                 justify-content: center;
+                align-items: center;
                 svg {
                     display: block;
                     width: 30px;
@@ -45,8 +62,22 @@
                     display: block;
                     width: 100%;
                     text-align: center;
+                    margin: 0;
+                    padding: 0;
                 }
             }
+            @include media($mobile) {
+                flex-wrap: wrap;
+                li {
+                    width: 50%;
+                }
+            }
+        }
+        @include media($tablet) {
+            width: 100%;
+        }
+        @include media($mobile) {
+            padding: 0 1rem 2rem 1rem;
         }
     }
 }

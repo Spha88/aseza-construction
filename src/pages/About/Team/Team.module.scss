@@ -2,6 +2,9 @@
 
 .Team {
     padding: 4rem 0 2rem;
+    @include media($tablet) {
+        padding: 2rem 0;
+    }
     .Header {
         max-width: 1200px;
         margin: 0 auto;
@@ -28,10 +31,25 @@
         max-width: 1200px;
         margin: 0 auto;
         padding-top: 2rem;
+        @include media($laptop) {
+            padding: 2rem 1rem 0;
+        }
+        @include media($mobile) {
+            flex-wrap: wrap;
+        }
         .TeamMember {
             width: 25%;
-            padding: 0 10px;
+            padding: 0 10px 0 0;
             text-align: center;
+            &:last-child { padding-right: 0 }
+            @include media($mobile) {
+                width: 100%;
+                padding: 0;
+                margin-bottom: 3rem;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
             .Img {
                 width: 100%;
                 height: 250px;
@@ -39,6 +57,9 @@
                 background-repeat: no-repeat;
                 background-position: center center;
                 position: relative;
+                @include media($mobile) {
+                    height: 350px;
+                }
                 .LinksContainer {
                     position: relative;
                     height: 100%;
@@ -57,6 +78,9 @@
                         position: absolute;
                         bottom: -100%;
                         @include transition;
+                        @include media($tablet) {
+                            bottom: 5%;
+                        }
                         li {
                             margin: 5px;
                             a {
