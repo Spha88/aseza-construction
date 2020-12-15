@@ -361,7 +361,7 @@ export const getServices = async () => {
             title
             serviceImages {
               image1 {
-                sourceUrl(size: THUMBNAIL)
+                sourceUrl
               }
             }
             content(format: RENDERED)

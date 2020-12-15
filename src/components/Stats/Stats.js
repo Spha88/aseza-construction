@@ -15,10 +15,10 @@ const Stats = () => {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita eum reiciendis reprehenderit cum? </p>
 
                         <div className={styles.StatsContainer}>
-                            <StatFigure label="Project Completed" figure="90" />
-                            <StatFigure label="Happy Clients" figure="20" />
-                            <StatFigure label="Won Awards" figure="50" />
-                            <StatFigure label="Engineer Employers" figure="240" />
+                            <StatFigure label="Project Completed" figure={90} />
+                            <StatFigure label="Happy Clients" figure={20} />
+                            <StatFigure label="Won Awards" figure={50} />
+                            <StatFigure label="Engineer Employers" figure={240} />
                         </div>
                     </div>
                     <div className={styles.Experience}>

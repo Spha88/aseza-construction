@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './HeroSlide.module.scss';
 import mySlides from './slides';
+import { Zoom } from 'react-reveal';
 
 const HeroSlide = () => {
 
@@ -93,9 +94,10 @@ const HeroSlide = () => {
                     <div key={index} className={styles.Slide} style={{ backgroundImage: `url(${slide.sourceUrl})` }}>
                         <div className={styles.Caption}>
                             <div>
-                                <h6>{slide.title}</h6>
-                                <h1>{slide.bigTitle}</h1>
-                                <p>{slide.caption}</p>
+                                <Zoom left when={activeIndex === index}>
+                                    <h6>{slide.title}</h6>
+                                    <h1>{slide.bigTitle}</h1>
+                                    <p>{slide.caption}</p></Zoom>
                             </div>
                         </div>
 

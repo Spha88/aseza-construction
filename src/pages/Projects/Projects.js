@@ -7,6 +7,7 @@ import bg from '../../assets/images/slide3.jpg';
 import styles from './Projects.module.scss';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import Loader from '../../components/UI/Loader/Loader';
+import { Zoom } from 'react-reveal';
 
 const Projects = () => {
 
@@ -30,24 +31,23 @@ const Projects = () => {
 
             { !loading && (
                 <div className={styles.Projects}>
-                    {projects.map(project => (
-                        <div
-                            key={project.slug}
-                            className={styles.Project}>
+                    {projects.map((project, index) => (
+                        <Zoom delay={(300 * index)} fraction={0.3} key={project.slug}>
+                            <div className={styles.Project}>
+                                <div className={styles.ProjectImg}
+                                    style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}>
 
-                            <div className={styles.ProjectImg}
-                                style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}>
-
-                                <div className={styles.DropShadow}></div>
-                                <div className={styles.Details}>
-                                    <h2>{project.title}</h2>
-                                    <h3>{project.projectDetails.subtitle}</h3>
-                                    <Link to={`/projects/${project.slug}`}>
-                                        details
-                                </Link>
+                                    <div className={styles.DropShadow}></div>
+                                    <div className={styles.Details}>
+                                        <h2>{project.title}</h2>
+                                        <h3>{project.projectDetails.subtitle}</h3>
+                                        <Link to={`/projects/${project.slug}`}>
+                                            Details
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Zoom>
                     ))}
                 </div>
             )}

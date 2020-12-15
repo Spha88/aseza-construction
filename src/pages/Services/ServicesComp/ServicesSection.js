@@ -2,26 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styles from './ServicesSection.module.scss';
 
 import { getServices } from '../../../lib/api';
-import { shortenString } from '../../../lib/utils';
+import { shortenString, removeTags } from '../../../lib/utils';
 
 
 const ServicesSection = () => {
     const [state, setState] = useState({
         services: [],
+        numberOfImagesLoading: 0,
         loading: true
     })
-
-    const removeTags = (str) => {
-        if ((str === null) || (str === ''))
-            return false;
-        else
-            str = str.toString();
-
-        // Regular expression to identify HTML tags in  
-        // the input string. Replacing the identified  
-        // HTML tag with a null string. 
-        return str.replace(/(<([^>]+)>)/ig, '');
-    }
 
     useEffect(() => {
         const fetchServices = async () => {
@@ -30,7 +19,7 @@ const ServicesSection = () => {
                 return {
                     ...state,
                     services: services,
-                    loading: false
+                    numberOfImagesLoading: services.length
                 }
             })
         }
@@ -38,22 +27,43 @@ const ServicesSection = () => {
         fetchServices();
     }, [])
 
-    const { services, loading } = state;
+    const imgLoadHandler = (e) => {
+        console.dir(e.target.complete);
+        if (e.target.complete) {
+            setState(state => {
+                return {
+                    ...state,
+                    numberOfImagesLoading: state.numberOfImagesLoading - 1
+                }
+            })
+        }
+    }
+
+    const { services, numberOfImagesLoading } = state;
 
     return (
         <div className={styles.ServicesList}>
             <ul>
-                {!loading && services.map(service => (
+                {services && services.map(service => (
                     <li key={service.slug}>
                         <a href={`/page/services/${service.slug}`}>
-                            <img src={service.serviceImages.image1.sourceUrl} alt="service" />
+                            <img
+                                onLoad={imgLoadHandler}
+                                src={service.serviceImages.image1.sourceUrl} alt="Service" />
                             <h3>{service.title}</h3>
-                            <div className={styles.Excerpt} dangerouslySetInnerHTML={{ __html: shortenString(removeTags(service.content), 80) }} />
+                            <div
+                                className={styles.Excerpt}
+                                dangerouslySetInnerHTML={{ __html: shortenString(removeTags(service.content), 80) }} />
                         </a>
-
                     </li>
                 ))}
             </ul>
+            {
+                numberOfImagesLoading ?
+                    <div className={styles.Loading}>
+                        loading...
+                    </div> : ''
+            }
         </div>
     )
 }
