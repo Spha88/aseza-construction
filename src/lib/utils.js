@@ -1,10 +1,28 @@
 import moment from 'moment';
+import $ from 'jquery';
+
+// Navbar monitor
+// change nav background color and position on scroll
+export const navBarMonitor = (navBarElement, styles) => {
+    const nav = $(navBarElement);
+    const distance = nav.offset().top;
+    const $window = $(window);
+
+    $window.scroll(function () {
+        if ($window.scrollTop() >= distance) {
+            nav.addClass(styles.Active);
+        } else {
+            nav.removeClass(styles.Active);
+        }
+    })
+}
 
 // Format date from wordpress
 export const formatDate = date => {
     return moment(date).format("D MMM YYYY")
 }
 
+// Shortens strings
 export const extractor = (str, number = 15) => {
     let shortString;
     let array = str.split(' '); // turn to array
@@ -12,6 +30,7 @@ export const extractor = (str, number = 15) => {
     shortString = array.length > number ? `${shortString}...` : shortString;
     return shortString;
 };
+
 
 export const shortenString = (string, limit) => {
     const newString = [];
@@ -29,6 +48,7 @@ export const shortenString = (string, limit) => {
     return string;
 }
 
+/** Remove tags from html */
 export const removeTags = (str) => {
     if ((str === null) || (str === ''))
         return false;
