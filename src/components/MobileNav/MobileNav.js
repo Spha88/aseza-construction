@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { getMenu } from '../../lib/api'
+import MenuIcon from '../UI/MenuIcon/MenuIcon';
 import styles from './MobileNav.module.scss';
 
 
@@ -38,9 +39,7 @@ const Nav = () => {
 
                     <Link to="/page/contact-page" className={styles.QuoteBtn}>GET A QUOTE</Link>
 
-                    <div onClick={toggleNav}>
-                        {open ? 'Close ' : 'Open '} menu
-                    </div>
+                    <MenuIcon click={toggleNav} open={open} />
                 </div>
 
                 <ul className={`${styles.NavItems} ${open && styles.NavOpen}`} onClick={toggleNav}>

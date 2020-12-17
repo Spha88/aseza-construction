@@ -1,0 +1,38 @@
+@import '../../../assets/styles/mixin.scss';
+.MenuIcon {
+    width: 35px;
+    height: 24px;
+    position: relative;
+    // overflow: hidden;
+    // border: 1px solid red;
+    div {
+        height: 4px;
+        width: 30px;
+        right: 0;
+        border-radius: 10px;
+        background-color: $theme-color;
+        position: absolute;
+        @include transition;
+        &:nth-child(2) { top: 8px; }
+        &:nth-child(3) { top: 16px; }
+    }
+    &.Open {
+        div {
+            &:nth-child(2) {
+                right: -300%;
+
+            }
+            &:nth-child(1) {
+                transform: rotate(30deg) translate(6px, 6px);
+                right: 5px;
+                // display: none;
+            }
+            &:nth-child(3) {
+                // display: none;
+                transform: rotate(330deg) translate(6px, -6px);
+                right: 5px;
+            }
+        }
+    }
+
+}
