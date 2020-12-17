@@ -1,0 +1,26 @@
+@import '../../assets/styles/mixin.scss';
+.SingleServicePage {
+    .Container {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        display: flex;
+        @include media($laptop) {
+            padding: 1rem;
+        }
+        .Aside {
+            width: 30%;
+        }
+        .Main {
+            width: 70%;
+            .ServiceFeatureImage {
+                height: 400px;
+                width: 100%;
+                margin-bottom: 2rem;
+                @include centerBackground;
+            }
+        }
+    }
+}

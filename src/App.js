@@ -13,6 +13,7 @@ import Projects from './pages/Projects/Projects';
 import SingleProject from './pages/Projects/SingleProject/SingleProject';
 import Footer from './components/Footer/Footer';
 import ServicesPage from './pages/Services/Services';
+import SingleServicePage from './pages/SingleServicePage/SingleServicePage';
 
 function App() {
   return (
@@ -25,9 +26,11 @@ function App() {
         </header>
         <main>
           <Switch>
+
             <Route path="/blog/:id" >
               <SingleBlog />
             </Route>
+
             <Route path="/blog">
               <Blog />
             </Route>
@@ -35,6 +38,7 @@ function App() {
             <Route path="/projects/:slug">
               <SingleProject />
             </Route>
+
             <Route path="/projects">
               <Projects />
             </Route>
@@ -44,8 +48,12 @@ function App() {
               <AboutPage />
             </Route>
 
+            <Route path="/services/:slug">
+              <SingleServicePage />
+            </Route>
+
             {/** Route for the ServicesPage */}
-            <Route path="/page/services">
+            <Route path="/services">
               <ServicesPage />
             </Route>
 

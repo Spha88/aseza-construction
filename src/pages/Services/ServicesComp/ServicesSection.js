@@ -46,7 +46,7 @@ const ServicesSection = () => {
             <ul>
                 {services && services.map(service => (
                     <li key={service.slug}>
-                        <a href={`/page/services/${service.slug}`}>
+                        <a href={`/services/${service.slug}`}>
                             <img
                                 onLoad={imgLoadHandler}
                                 src={service.serviceImages.image1.sourceUrl} alt="Service" />

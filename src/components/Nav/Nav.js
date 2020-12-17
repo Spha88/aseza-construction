@@ -19,7 +19,6 @@ const Nav = () => {
         // Get menu items from database;
         async function getMenuItems() {
             const data = await getMenu(2);
-            console.log(data.menu.menuItems.nodes);
             setState({ loading: false, menuItems: data.menu.menuItems.nodes })
         }
         getMenuItems();
@@ -44,8 +43,13 @@ const Nav = () => {
                     </li>
 
                     <li className={styles.Item}>
+                        <NavLink to="/services" activeClassName={styles.Active}>Services</NavLink>
+                    </li>
+
+                    <li className={styles.Item}>
                         <NavLink to="/Blog" activeClassName={styles.Active}>Blog</NavLink>
                     </li>
+
 
                     {/* Check if the nav item actually has a connected node, which is a page/post*/}
                     {!loading && menuItems.map(item => (

@@ -25,7 +25,6 @@ const Nav = () => {
         // Get menu items from database;
         async function getMenuItems() {
             const data = await getMenu(2);
-            console.log(data.menu.menuItems.nodes);
             setState({ loading: false, menuItems: data.menu.menuItems.nodes })
         }
         getMenuItems();
@@ -55,6 +54,11 @@ const Nav = () => {
                     <li className={styles.Item}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 2v20h-20v-20h20zm2-2h-24v24h24v-24zm-4 7h-8v1h8v-1zm0 5h-8v1h8v-1zm0 5h-8v1h8v-1zm-10.516-11.304l-.71-.696-2.553 2.607-1.539-1.452-.698.71 2.25 2.135 3.25-3.304zm0 5l-.71-.696-2.552 2.607-1.539-1.452-.698.709 2.249 2.136 3.25-3.304zm0 5l-.71-.696-2.552 2.607-1.539-1.452-.698.709 2.249 2.136 3.25-3.304z" /></svg>
                         <NavLink to="/projects" activeClassName={styles.Active}>Projects</NavLink>
+                    </li>
+
+                    <li className={styles.Item}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 2v22h-20v-22h3c1.23 0 2.181-1.084 3-2h8c.82.916 1.771 2 3 2h3zm-11 1c0 .552.448 1 1 1 .553 0 1-.448 1-1s-.447-1-1-1c-.552 0-1 .448-1 1zm9 1h-4l-2 2h-3.897l-2.103-2h-4v18h16v-18zm-13 9.729l.855-.791c1 .484 1.635.852 2.76 1.654 2.113-2.399 3.511-3.616 6.106-5.231l.279.64c-2.141 1.869-3.709 3.949-5.967 7.999-1.393-1.64-2.322-2.686-4.033-4.271z" /></svg>
+                        <NavLink to="/services" activeClassName={styles.Active}>Services</NavLink>
                     </li>
 
                     <li className={styles.Item}>

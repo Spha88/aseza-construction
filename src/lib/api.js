@@ -373,3 +373,81 @@ export const getServices = async () => {
   return data.services.nodes;
 }
 
+export const getSingleServicePageData = async (slug) => {
+  const query = `
+  query GetSingleServicePageData($id: ID!, $idType: ServiceIdType!) {
+    service(id: $id, idType: $idType) {
+      id
+      content
+      date
+      serviceImages {
+        image1 {
+          sourceUrl
+          altText
+          caption
+        }
+        image2 {
+          sourceUrl
+          altText
+          caption
+        }
+        image3 {
+          sourceUrl
+          altText
+          caption
+        }
+        image4 {
+          sourceUrl
+          altText
+          caption
+        }
+        image5 {
+          sourceUrl
+          altText
+          caption
+        }
+        image6 {
+          sourceUrl
+          altText
+          caption
+        }
+        image7 {
+          sourceUrl
+          altText
+          caption
+        }
+        image8 {
+          sourceUrl
+          altText
+          caption
+        }
+        image9 {
+          sourceUrl
+          altText
+          caption
+        }
+        image10 {
+          sourceUrl
+          altText
+          caption
+        }
+      }
+      title
+    }
+    services {
+      nodes {
+        slug
+        title
+      }
+    }
+  }
+  `
+  const variables = {
+    id: slug,
+    idType: 'SLUG'
+  }
+
+  const data = await fetchData(query, variables);
+  return data;
+}
+
