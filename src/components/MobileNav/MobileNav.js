@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import { navBarMonitor } from '../../lib/utils';
 import { getMenu } from '../../lib/api'
-import ContactDetails from '../HeaderContactDetails/ContactDetails';
-import styles from './Nav.module.scss';
+import styles from './MobileNav.module.scss';
 
 
 const Nav = () => {
     const [state, setState] = useState({
         loading: true,
-        menuItems: ''
+        menuItems: '',
+        open: false
     })
 
+    const toggleNav = () => setState(state => {
+        return { ...state, open: !state.open }
+    })
+
+
     useEffect(() => {
-        // change nav background color and position on scroll
-        navBarMonitor("#top-page-nav", styles);
 
         // Get menu items from database;
         async function getMenuItems() {
@@ -25,15 +27,23 @@ const Nav = () => {
         getMenuItems();
     }, [])
 
-    const { loading, menuItems } = state;
+    const { loading, menuItems, open } = state;
 
     return (
-        <nav className={styles.Nav} id="top-page-nav">
+        <nav className={`${styles.MobileNav} ${!open && styles.NavClosed}`}>
 
             <div className={styles.NavContent}>
-                <h2 className={styles.Logo}>Aseza</h2>
+                <div className={styles.LogoContainer}>
+                    <h2 className={styles.Logo}>Aseza</h2>
 
-                <ul className={styles.NavItems}>
+                    <Link to="/page/contact-page" className={styles.QuoteBtn}>GET A QUOTE</Link>
+
+                    <div onClick={toggleNav}>
+                        {open ? 'Close ' : 'Open '} menu
+                    </div>
+                </div>
+
+                <ul className={`${styles.NavItems} ${open && styles.NavOpen}`} onClick={toggleNav}>
 
                     <li className={styles.Item}>
                         <NavLink to="/" activeClassName={styles.Active} exact>Home</NavLink>
@@ -56,7 +66,7 @@ const Nav = () => {
                         )
                     ))}
                 </ul>
-                <Link to="/page/contact-page" className={styles.QuoteBtn}>GET A QUOTE</Link>
+
             </div>
         </nav>
     )

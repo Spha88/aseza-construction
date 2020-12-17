@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styles from './App.module.scss';
 
+import HeaderContactDetails from './components/HeaderContactDetails/ContactDetails';
+import Nav from './components/Nav/Nav';
+import MobileNav from './components/MobileNav/MobileNav';
 import Home from './pages/Home/Home';
 import Blog from './pages/Blog/Blog';
 import SingleBlog from './pages/Blog/SingleBlog/SingleBlog';
 import AboutPage from './pages/About/About';
 import SinglePage from './pages/SinglePage/SinglePage';
-import Nav from './components/Nav/Nav';
 import Projects from './pages/Projects/Projects';
 import SingleProject from './pages/Projects/SingleProject/SingleProject';
 import Footer from './components/Footer/Footer';
@@ -17,7 +19,9 @@ function App() {
     <Router>
       <div className={styles.App}>
         <header className={styles.Header}>
+          <HeaderContactDetails />
           <Nav />
+          <MobileNav />
         </header>
         <main>
           <Switch>

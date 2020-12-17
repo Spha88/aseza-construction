@@ -1,7 +1,10 @@
-@import '../../../assets/styles/mixin.scss';
+@import '../../assets/styles/mixin.scss';
 
 .ContactDetails {
     background: $theme-white;
+    @include media($tablet) {
+        display: none;
+    }
     ul {
         display: flex;
         list-style-type: none;
