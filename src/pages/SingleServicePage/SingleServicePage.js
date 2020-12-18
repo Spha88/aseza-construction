@@ -7,6 +7,7 @@ import styles from './SingleServicePage.module.scss';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import ServicesWidget from '../../components/ServicesWidget/ServicesWidget'
 import ContactDetailsWidget from '../../components/ContactDetailsWidget/ContactDetailsWidget';
+import ArticleFooter from '../../components/UI/ArticleFooter/ArticleFooter';
 
 const SingleServicePage = () => {
     const { slug } = useParams();
@@ -63,6 +64,7 @@ const SingleServicePage = () => {
 
                 </main>
             </div>
+            <ArticleFooter />
         </div>
     )
 }

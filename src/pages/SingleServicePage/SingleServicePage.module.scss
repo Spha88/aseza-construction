@@ -1,11 +1,11 @@
 @import '../../assets/styles/mixin.scss';
 .SingleServicePage {
+    padding-bottom: 2rem;
     .Container {
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
         padding-top: 2rem;
-        padding-bottom: 3rem;
         display: flex;
         @include media($laptop) {
             padding: 1rem;

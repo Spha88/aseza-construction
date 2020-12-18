@@ -119,7 +119,7 @@ const HeroSlide = () => {
 
             <div className={styles.CallToAction}>
                 <Link to="/projects">Our Projects</Link>
-                <Link to="/page/contact-page">Contact Us</Link>
+                <Link to="/page/contact">Contact Us</Link>
             </div>
 
             {/** Number of Current slide and Total number of slides indicator */}

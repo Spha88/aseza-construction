@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import styles from './ArticleFooter.module.scss';
 
-const ArticleFooter = ({ to, label }) => {
+const ArticleFooter = () => {
+    const { goBack } = useHistory();
     return (
         <footer className={styles.Footer}>
-            <Link to={to}>{label}</Link>
+            <button onClick={goBack}>Back</button>
         </footer>
     )
 }

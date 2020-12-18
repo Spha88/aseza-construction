@@ -3,11 +3,13 @@
 .Footer {
     text-align: center;
     padding: 3rem 1rem 1rem;
-    a {
+    button {
         display: inline-block;
         border: 1px solid $theme-color;
         padding: 8px 30px;
         @include transition;
+        background-color: transparent;
+        cursor: pointer;
         &:hover {
             background-color: $theme-color;
         }

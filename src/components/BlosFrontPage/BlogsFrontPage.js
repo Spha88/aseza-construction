@@ -41,10 +41,10 @@ const BlogsFrontPage = () => {
                                         {formatDate(post.date)}
                                     </p>
                                 </div>
-                                <h2><Link to={`/blog/${post.slug}`}>{post.title}</Link></h2>
+                                <h2><Link to={`/news/${post.slug}`}>{post.title}</Link></h2>
 
 
-                                <Link to={`/blog/${post.slug}`}>
+                                <Link to={`/news/${post.slug}`}>
                                     <div className={styles.Excerpt} dangerouslySetInnerHTML={{ __html: shortenString(post.content, 100) }} />
                                 </Link>
                             </div>

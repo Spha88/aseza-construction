@@ -11,7 +11,7 @@ const CallToAction = () => {
                     <p>We construct buildings that define our time!</p>
                 </div>
                 <div>
-                    <Link to="/contact" className={styles.CallToActionBtn}>GET A QUOTE</Link>
+                    <Link to="/page/contact" className={styles.CallToActionBtn}>GET A QUOTE</Link>
                 </div>
             </div>
         </div>

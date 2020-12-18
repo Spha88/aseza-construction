@@ -12,7 +12,6 @@ import Loader from '../../../components/UI/Loader/Loader';
 import styles from './SingleBlog.module.scss';
 
 const SingleBlog = () => {
-
   const [loading, setLoading] = useState(true);
   const [post, setPost] = useState();
   const { id } = useParams();
