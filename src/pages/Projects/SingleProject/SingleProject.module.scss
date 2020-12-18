@@ -84,20 +84,7 @@
                     width: 100%;
                     margin: 0 auto;
                     text-align: left;
-                    div[class*="gallery"] {
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: space-between;
-                        figure {
-                            width: 33.33%;
-                            margin: 0;
-                            padding: 5px;
-                            img {
-                                width: 100%;
-                                height: auto;
-                            }
-                        }
-                    }
+                    @include wp-content-styles;
                 }
             }
             @include media($mobile) {

@@ -1,5 +1,8 @@
 import moment from 'moment';
 import $ from 'jquery';
+import { animateScroll as scroll } from 'react-scroll';
+
+export const scrollToTop = () => scroll.scrollToTop({ smooth: "easeOutElastic", delay: 500, duration: 1000 });
 
 // Navbar monitor
 // change nav background color and position on scroll

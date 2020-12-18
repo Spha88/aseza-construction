@@ -47,7 +47,7 @@ const Nav = () => {
                     </li>
 
                     <li className={styles.Item}>
-                        <NavLink to="/Blog" activeClassName={styles.Active}>Blog</NavLink>
+                        <NavLink to="/news" activeClassName={styles.Active}>News</NavLink>
                     </li>
 
 

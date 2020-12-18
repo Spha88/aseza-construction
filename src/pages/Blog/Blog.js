@@ -35,7 +35,7 @@ const Blog = () => {
                             <div className={styles.FeatureImg} style={{ backgroundImage: `url(${post.featuredImage.node.sourceUrl})` }}>
                             </div>
                             <div className={styles.PostBody}>
-                                <h2><Link to={`/blog/${post.slug}`}>{post.title}</Link></h2>
+                                <h2><Link to={`/news/${post.slug}`}>{post.title}</Link></h2>
                                 <div className={styles.MetaData}>
                                     <ul>
                                         <li>
@@ -47,7 +47,7 @@ const Blog = () => {
                                     </ul>
                                 </div>
 
-                                <Link to={`/blog/${post.slug}`}>
+                                <Link to={`/news/${post.slug}`}>
                                     <div className={styles.Excerpt} dangerouslySetInnerHTML={{ __html: shortenString(post.excerpt, 100) }} />
                                 </Link>
                             </div>

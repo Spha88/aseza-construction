@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { getSingleServicePageData } from '../../lib/api';
+import { scrollToTop } from '../../lib/utils';
 import styles from './SingleServicePage.module.scss';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import ServicesWidget from '../../components/ServicesWidget/ServicesWidget'
@@ -28,7 +29,7 @@ const SingleServicePage = () => {
                     services: data.services.nodes,
                 }
             })
-            console.log(data);
+            scrollToTop();
         }
         getPageData();
     }, [slug])

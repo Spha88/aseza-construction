@@ -27,11 +27,11 @@ function App() {
         <main>
           <Switch>
 
-            <Route path="/blog/:id" >
+            <Route path="/news/:id" >
               <SingleBlog />
             </Route>
 
-            <Route path="/blog">
+            <Route path="/news">
               <Blog />
             </Route>
 

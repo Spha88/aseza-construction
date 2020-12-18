@@ -40,7 +40,7 @@ const SingleBlog = () => {
               <ProjectsWidget />
             </aside>
           </div>
-          <ArticleFooter to="/blog" label="Back" />
+          <ArticleFooter to="/news" label="Back" />
         </React.Fragment>
       }
       <Loader loading={loading} />

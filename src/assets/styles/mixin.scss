@@ -55,3 +55,35 @@ $mobile: 425px;
     justify-content: center;
     align-items: center;
 }
+
+@mixin wp-content-styles {
+    blockquote {
+        background: $theme-grey;
+        padding: 1px 1rem;
+        border-left: 2px solid $theme-color;
+        margin: 0;
+    }
+    img {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    strong {
+        font-weight: $bold;
+        span {
+            font-weight: $bold;
+        }
+    }
+    ul, ol {
+        padding-left: 18px;
+        li {
+            margin-bottom: 5px;
+            &:last-child { margin-bottom: none}
+            &::marker {
+                color: $theme-color;
+            }
+        }
+    }
+    a {
+        color: $theme-color;
+    }
+}
