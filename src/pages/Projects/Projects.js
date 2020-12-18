@@ -32,7 +32,7 @@ const Projects = () => {
             { !loading && (
                 <div className={styles.Projects}>
                     {projects.map((project, index) => (
-                        <Zoom delay={(300 * index)} fraction={0.3} key={project.slug}>
+                        <Zoom fraction={0.3} key={project.slug}>
                             <div className={styles.Project}>
                                 <div className={styles.ProjectImg}
                                     style={{ backgroundImage: `url(${project.projectImages.image1.sourceUrl})` }}>

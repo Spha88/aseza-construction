@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ServicesSection.module.scss';
-
 import { getServices } from '../../../lib/api';
 import { shortenString, removeTags } from '../../../lib/utils';
 
@@ -28,7 +27,7 @@ const ServicesSection = () => {
     }, [])
 
     const imgLoadHandler = (e) => {
-        console.dir(e.target.complete);
+        // console.dir(e.target.complete);
         if (e.target.complete) {
             setState(state => {
                 return {

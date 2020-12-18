@@ -8,6 +8,8 @@ import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import ServicesWidget from '../../components/ServicesWidget/ServicesWidget'
 import ContactDetailsWidget from '../../components/ContactDetailsWidget/ContactDetailsWidget';
 import ArticleFooter from '../../components/UI/ArticleFooter/ArticleFooter';
+import Loader from '../../components/UI/Loader/Loader';
+import Img from '../../components/UI/Img/Img';
 
 const SingleServicePage = () => {
     const { slug } = useParams();
@@ -28,6 +30,7 @@ const SingleServicePage = () => {
                     slug: slug,
                     service: data.service,
                     services: data.services.nodes,
+                    loading: false
                 }
             })
             scrollToTop();
@@ -51,20 +54,19 @@ const SingleServicePage = () => {
                     <ContactDetailsWidget />
                 </aside>
                 <main className={styles.Main}>
-                    {service ? (
+                    {service && (
                         <React.Fragment>
-                            <div className={styles.ServiceFeatureImage} style={{ backgroundImage: `url(${service.serviceImages.image1.sourceUrl})` }}>
+                            <div className={styles.ServiceFeatureImage}>
+                                <Img imgUrl={service.serviceImages.image1.sourceUrl} alt="service" />
                             </div>
-                            <div dangerouslySetInnerHTML={{ __html: service.content }}></div>
-
+                            <div className={styles.ServiceItemContent} dangerouslySetInnerHTML={{ __html: service.content }}></div>
                         </React.Fragment>
-                    ) : (
-                            <h2>Service loading ...</h2>
-                        )}
-
+                    )}
                 </main>
             </div>
             <ArticleFooter />
+
+            <Loader loading={loading} />
         </div>
     )
 }

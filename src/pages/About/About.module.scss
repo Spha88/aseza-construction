@@ -44,6 +44,8 @@
         .AboutParagraph {
             width:60%;
             padding-right: 4rem;
+            @include wp-content-styles;
+
             .Signature {
                 padding-top: 1rem;
                 .SignatureImg {
@@ -60,6 +62,7 @@
                     margin: 0;
                 }
             }
+
             @include media($laptop) {
                 padding-right: 2rem;
             }

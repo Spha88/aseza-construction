@@ -2,26 +2,21 @@ import React, { useState } from 'react';
 import styles from './Img.module.scss';
 
 const Img = ({ imgUrl, alt }) => {
-    const [state, setState] = useState({
-        loading: true
-    })
 
-    const imgLoadHandler = () => {
-        setState(state => {
-            return { ...state, loading: false }
-        })
-    }
+    const [loading, setLoading] = useState(true)
 
-    let { loading } = state;
+    const imgLoadHandler = () => setLoading(false);
 
     return (
-        <div>
-            { loading && <h2>Loading...</h2>}
+        <div className={styles.ImageContainer}>
             <img
                 className={`${styles.DisplayNone} ${!loading && styles.Display}`}
                 onLoad={imgLoadHandler}
                 src={imgUrl}
                 alt={alt && alt} />
+            <div className={`${styles.SpinnerContainer} ${!loading && styles.CompleteLoad}`}>
+                <div className={styles.Spinner}></div>
+            </div>
         </div>
     )
 }

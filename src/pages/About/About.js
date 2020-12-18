@@ -44,7 +44,6 @@ const SinglePage = () => {
                         <div className={styles.AboutParagraph}>
                             <div dangerouslySetInnerHTML={{ __html: page.content }} />
                             <div className={styles.Signature}>
-
                                 <div className={styles.SignatureImg}></div>
                                 <h3>Mr Sipho Ntozakhe</h3>
                                 <h5>CED of Aseza PM</h5>
