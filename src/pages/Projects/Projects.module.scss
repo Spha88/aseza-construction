@@ -7,12 +7,12 @@
     .Projects {
         max-width: 1220px;
         margin: 0 auto;
-        padding-bottom: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
         @include media($tablet) {
-            padding: 0 5px 5px 5px;
+            padding: 5px 5px 5px 5px;
         }
         .Project {
             width: 33.33%;
@@ -45,6 +45,12 @@
                 color: $theme-white;
                 h2 {
                     margin: 0;
+                    @include media($tablet) {
+                        font-size: 20px;
+                    }
+                    @include media($mobile) {
+                        font-size: 22px;
+                    }
                 }
                 h3 {
                     margin: 0 0 30px 0;

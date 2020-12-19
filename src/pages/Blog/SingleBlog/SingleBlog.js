@@ -31,17 +31,15 @@ const SingleBlog = () => {
       <PageHeader
         label="news" singlePage={post && post.title} backgroundImg={post && post.featuredImage.node.sourceUrl} />
       { !loading &&
-        <React.Fragment>
-          <div className={styles.Layout}>
-            <main><Article post={post} /></main>
-            <aside>
-              <PostWidget />
-              <ProjectsWidget />
-            </aside>
-          </div>
-          <ArticleFooter to="/news" label="Back" />
-        </React.Fragment>
+        <div className={styles.Layout}>
+          <main><Article post={post} /></main>
+          <aside>
+            <PostWidget />
+            <ProjectsWidget />
+          </aside>
+        </div>
       }
+      <ArticleFooter to="/news" label="Back" />
       <Loader loading={loading} />
     </div>
   )

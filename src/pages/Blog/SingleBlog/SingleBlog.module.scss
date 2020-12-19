@@ -36,9 +36,10 @@
         }
         @include media($mobile) {
             flex-wrap: wrap;
-            padding: 1rem 1rem;
+            padding: 5px;
             aside {
                 width: 100%;
+                padding: 0 15px;
             }
             main {
                 width: 100%;

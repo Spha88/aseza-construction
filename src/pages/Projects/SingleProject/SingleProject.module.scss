@@ -8,18 +8,15 @@
     .ProjectContent {
         max-width: 1024px;
         margin: 0 auto;
+        padding-top: 10px;
         @include media($laptop) {
-            padding: 0 1rem
-        }
-        @include media($mobile) {
-            padding: 0 .5rem;
+            padding: 10px;
         }
         .Collage {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 510px;
-            padding-top: 15px;
             .TwoImages {
                 width: 35%; 
                 .Image {
@@ -49,7 +46,6 @@
                 }
             }
             @include media($mobile) {
-                padding-top: 5px;
                 flex-direction: column-reverse;
                 height: auto;
                 .TwoImages {
@@ -65,7 +61,7 @@
         }
 
         .Layout {
-            padding: 2rem 0;
+            padding: 2rem 1rem;
             display: flex;
             justify-content: center;
             align-items: flex-start;
