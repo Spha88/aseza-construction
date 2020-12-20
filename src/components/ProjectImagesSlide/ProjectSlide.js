@@ -13,6 +13,8 @@ const ProjectSlide = ({ slides }) => {
             return null;
         }
     })
+    const lastSlide = slideArr[slideArr.length - 1];
+    const firstSlide = slideArr[0];
 
     const [state, setState] = useState({
         slideLength: slideArr.length,
@@ -22,8 +24,8 @@ const ProjectSlide = ({ slides }) => {
         transition: 0.45
     })
 
-
-    const { width, translate, transition, activeIndex, slideLength } = state
+    const { width, translate, transition, activeIndex, slideLength } = state;
+    console.log(activeIndex);
 
     const slideContainer = useRef();
 
@@ -31,51 +33,83 @@ const ProjectSlide = ({ slides }) => {
         // Get the with of the slide container;
         if (slideContainer.current) {
             setState(state => {
-                return { ...state, width: slideContainer.current.offsetWidth }
+                return {
+                    ...state,
+                    width: slideContainer.current.offsetWidth,
+                    translate: slideContainer.current.offsetWidth
+                }
             });
         }
-
     }, [slides])
 
     const nextSlide = () => {
         // Go back to first slide when you reach the last slide
         if (activeIndex === slideLength - 1) {
-            return setState({
+            setState({
                 ...state,
                 activeIndex: 0,
-                translate: 0
+                transition: 0.45,
+                translate: (activeIndex + 2) * width
+            })
+            setTimeout(() => {
+                return setState({
+                    ...state,
+                    activeIndex: 0,
+                    transition: 0,
+                    translate: width,
+                })
+            }, [450])
+        } else {
+            setState({
+                ...state,
+                transition: 0.45,
+                activeIndex: activeIndex + 1,
+                translate: (activeIndex + 2) * width
             })
         }
-        setState({
-            ...state,
-            activeIndex: activeIndex + 1,
-            translate: (activeIndex + 1) * width
-        })
+
+
     };
 
     const prevSlide = () => {
         // Go to last slide if you are on the first slide
         if (activeIndex === 0) {
-            return setState({
+            setState({
                 ...state,
-                translate: (slideLength - 1) * width,
+                translate: 0,
+                transition: 0.45,
                 activeIndex: slideLength - 1
             })
+
+            setTimeout(() => {
+                return setState({
+                    ...state,
+                    transition: 0,
+                    activeIndex: slideLength - 1,
+                    translate: (slideLength * width),
+                })
+            }, [450])
+        } else {
+            setState({
+                ...state,
+                transition: 0.45,
+                activeIndex: activeIndex - 1,
+                translate: (activeIndex) * width
+            })
         }
-        setState({
-            ...state,
-            activeIndex: activeIndex - 1,
-            translate: (activeIndex - 1) * width
-        })
+
     };
 
     const selectSlide = index => {
         setState({
             ...state,
+            transition: 0,
             activeIndex: index,
-            translate: index * width
+            translate: (index + 1) * width
         })
     }
+
+
 
     return (
         <div className={styles.ProjectSlideContainer} ref={slideContainer}>
@@ -87,12 +121,18 @@ const ProjectSlide = ({ slides }) => {
                     width: `${width}px`
                 }}>
 
+                <div className={styles.Slide} style={{ backgroundImage: `url(${lastSlide.sourceUrl})` }}>
+                    {lastSlide.caption && <div className={styles.Caption} dangerouslySetInnerHTML={{ __html: lastSlide.caption }} />}
+                </div>
                 {slideArr.map((slide, index) => (
                     <div key={index} className={styles.Slide} style={{ backgroundImage: `url(${slide.sourceUrl})` }}>
                         { slide.caption && <div className={styles.Caption} dangerouslySetInnerHTML={{ __html: slide.caption }} />}
-
                     </div>
                 ))}
+                <div className={styles.Slide} style={{ backgroundImage: `url(${firstSlide.sourceUrl})` }}>
+                    {firstSlide.caption && <div className={styles.Caption} dangerouslySetInnerHTML={{ __html: firstSlide.caption }} />}
+                </div>
+
             </div>
 
             {/** Arrows */}
