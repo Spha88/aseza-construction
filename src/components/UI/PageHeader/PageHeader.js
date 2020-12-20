@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { extractor } from '../../../lib/utils';
 import styles from './PageHeader.module.scss';
 
 const PageHeader = ({ backgroundImg, label, singlePage }) => {
@@ -21,7 +22,7 @@ const PageHeader = ({ backgroundImg, label, singlePage }) => {
             <ul>
                 <li><Link to="/">Home</Link>/</li>
                 <li><Link to={`/${parentPage}`}>{label}</Link></li>
-                {childPage && (<li>/<Link to={`/${parentPage}/${childPage}`}>{singlePage}</Link></li>)}
+                {childPage && (<li>/<Link to={`/${parentPage}/${childPage}`}>{extractor(singlePage, 8)}</Link></li>)}
             </ul>
         </header>
     )

@@ -4,7 +4,6 @@ import { formatDate } from '../../../../lib/utils';
 
 const ProjectDetails = ({ details }) => {
     const { architecture, company, dateStarted, dateCompleted, employees, location, surfaceArea } = details;
-    console.log(dateCompleted);
     return (
         <ul className={styles.Details}>
             { company && <li><span>Company: </span>{company}</li>}

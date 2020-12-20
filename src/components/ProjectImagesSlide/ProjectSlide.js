@@ -25,7 +25,7 @@ const ProjectSlide = ({ slides }) => {
     })
 
     const { width, translate, transition, activeIndex, slideLength } = state;
-    console.log(activeIndex);
+
 
     const slideContainer = useRef();
 

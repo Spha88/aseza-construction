@@ -104,7 +104,7 @@ const ProjectSlide = () => {
             ...state,
             transition: 0.45,
             activeIndex: index,
-            translate: index * width
+            translate: (index + 1) * width
         })
     }
 

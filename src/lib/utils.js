@@ -28,6 +28,7 @@ export const formatDate = date => {
 
 // Shortens strings
 export const extractor = (str, number = 15) => {
+    if (!str) return '';
     let shortString;
     let array = str.split(' '); // turn to array
     shortString = array.slice(0, number).join(' ');

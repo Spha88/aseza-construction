@@ -17,6 +17,10 @@ const HeroSlide = () => {
     //     }
     // })
 
+    const firstSlide = mySlides[0];
+    const lastSlide = mySlides[mySlides.length - 1]
+    var interval;
+
     const [state, setState] = useState({
         slideLength: mySlides.length,
         activeIndex: 0,
@@ -24,7 +28,6 @@ const HeroSlide = () => {
         translate: 0,
         transition: 0.45
     })
-
 
     const { width, translate, transition, activeIndex, slideLength } = state
 
@@ -34,7 +37,11 @@ const HeroSlide = () => {
         // Get the with of the slide container;
         if (slideContainer.current) {
             setState(state => {
-                return { ...state, width: slideContainer.current.offsetWidth }
+                return {
+                    ...state,
+                    width: slideContainer.current.offsetWidth,
+                    translate: slideContainer.current.offsetWidth
+                }
             });
         }
 
@@ -43,32 +50,53 @@ const HeroSlide = () => {
     const nextSlide = () => {
         // Go back to first slide when you reach the last slide
         if (activeIndex === slideLength - 1) {
-            return setState({
+            setState({
                 ...state,
                 activeIndex: 0,
-                translate: 0
+                transition: 0.45,
+                translate: (activeIndex + 2) * width
             })
+            setTimeout(() => {
+                return setState({
+                    ...state,
+                    activeIndex: 0,
+                    transition: 0,
+                    translate: width,
+                })
+            }, [450])
         }
         setState({
             ...state,
+            transition: 0.45,
             activeIndex: activeIndex + 1,
-            translate: (activeIndex + 1) * width
+            translate: (activeIndex + 2) * width
         })
     };
 
     const prevSlide = () => {
         // Go to last slide if you are on the first slide
         if (activeIndex === 0) {
-            return setState({
+            setState({
                 ...state,
-                translate: (slideLength - 1) * width,
+                translate: 0,
+                transition: 0.45,
                 activeIndex: slideLength - 1
             })
+
+            setTimeout(() => {
+                return setState({
+                    ...state,
+                    transition: 0,
+                    activeIndex: slideLength - 1,
+                    translate: (slideLength * width),
+                })
+            }, [450])
         }
         setState({
             ...state,
+            transition: 0.45,
             activeIndex: activeIndex - 1,
-            translate: (activeIndex - 1) * width
+            translate: activeIndex * width
         })
     };
 
@@ -76,8 +104,15 @@ const HeroSlide = () => {
         setState({
             ...state,
             activeIndex: index,
-            translate: index * width
+            translate: (index + 1) * width
         })
+    }
+
+    const autoPlay = () => {
+        interval = setInterval(() => {
+            nextSlide();
+        }, 5000);
+        return interval;
     }
 
     return (
@@ -89,20 +124,28 @@ const HeroSlide = () => {
                     transition: `transform ease-out ${transition}s`,
                     width: `${width}px`
                 }}>
+                <div className={styles.Slide} style={{ backgroundImage: `url(${lastSlide.sourceUrl})` }}>
+                    <div className={styles.Caption}>
 
+                    </div>
+                </div>
                 {mySlides.map((slide, index) => (
                     <div key={index} className={styles.Slide} style={{ backgroundImage: `url(${slide.sourceUrl})` }}>
                         <div className={styles.Caption}>
                             <div>
-                                <Zoom left when={activeIndex === index}>
+                                <Zoom when={activeIndex === index}>
                                     <h6>{slide.title}</h6>
                                     <h1>{slide.bigTitle}</h1>
                                     <p>{slide.caption}</p></Zoom>
                             </div>
                         </div>
-
                     </div>
                 ))}
+                <div className={styles.Slide} style={{ backgroundImage: `url(${firstSlide.sourceUrl})` }}>
+                    <div className={styles.Caption}>
+
+                    </div>
+                </div>
             </div>
 
             {/** Arrows */}

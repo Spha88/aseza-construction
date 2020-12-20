@@ -32,7 +32,7 @@ const PostWidget = () => {
                         <ul className={styles.Posts}>
                             {posts.map(post => (
                                 <li className={styles.Post} key={post.slug}>
-                                    <Link to={`/blog/${post.slug}`}>
+                                    <Link to={`/news/${post.slug}`}>
                                         <div className={styles.FeaturedImg}
                                             style={{ backgroundImage: `url(${post.featuredImage.node.sourceUrl})` }}
                                         ></div>
