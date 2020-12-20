@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { getSinglePage } from '../../lib/api';
+import { scrollToTop } from '../../lib/utils';
 import styles from './Services.module.scss';
 import PageHeader from '../../components/UI/PageHeader/PageHeader';
 import Services from './ServicesComp/ServicesSection';
@@ -18,10 +19,9 @@ const ServicesPage = () => {
             const myPage = await getSinglePage("services");
             setPage(myPage);
             setLoading(false);
-            console.log(myPage);
         }
-
         getPage();
+        scrollToTop();
 
     }, [])
 

@@ -22,7 +22,6 @@ const SinglePage = () => {
             const myPage = await getSinglePage("about-page");
             setPage(myPage);
             setLoading(false);
-            // console.log(myPage);
         }
 
         getPage();

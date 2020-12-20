@@ -20,7 +20,6 @@ const Team = () => {
                     loading: false
                 }
             })
-            console.log(employees);
         }
         fetchEmployees();
     }, [])

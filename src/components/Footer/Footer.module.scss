@@ -71,7 +71,19 @@
         .SocialMediaLinks {
             ul {
                 li {
-                    margin-bottom: .5rem;
+                    margin-bottom: 1rem;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: left;
+                        svg {
+                            margin-right: 15px;
+                            fill: $theme-color;
+                        }
+                        span {
+                            display: inline-block;
+                        }
+                    }
                 }
             }
         }

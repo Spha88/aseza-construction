@@ -1,16 +1,14 @@
+import React from 'react';
+
 export default function Container({ children }) {
     return (
-        <div className="my-container">
+        <div style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            width: '100%',
+            padding: '0 .1rem'
+        }}>
             {children}
-            <style jsx>{`
-                .my-container {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    width: 100%;
-                    padding: 0 .1rem;
-                 }
-                `}
-            </style>
         </div>
     )
 }

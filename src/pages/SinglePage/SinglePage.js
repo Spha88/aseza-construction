@@ -14,8 +14,6 @@ const SinglePage = () => {
 
     const { id } = useParams();
 
-    console.log(id);
-
     useEffect(() => {
         const getPage = async () => {
             const myPage = await getSinglePage(id);

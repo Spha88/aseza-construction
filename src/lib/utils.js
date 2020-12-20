@@ -2,6 +2,7 @@ import moment from 'moment';
 import $ from 'jquery';
 import { animateScroll as scroll } from 'react-scroll';
 
+// Scroll page in which it is called to the top on load
 export const scrollToTop = () => scroll.scrollToTop({ smooth: "easeOutElastic", delay: 500, duration: 1000 });
 
 // Navbar monitor

@@ -31,7 +31,7 @@ const Services = () => {
 
                     <div className={styles.ServicesContainer}>
                         {services && services.map(service => (
-                            <div className={styles.ServiceItem} style={{ backgroundImage: `url(${service.serviceImages.image1.sourceUrl})` }}>
+                            <div className={styles.ServiceItem} key={service.slug} style={{ backgroundImage: `url(${service.serviceImages.image1.sourceUrl})` }}>
                                 <div className={styles.Bg}></div>
                                 <Link to={`/services/${service.slug}`} className={styles.Content}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
