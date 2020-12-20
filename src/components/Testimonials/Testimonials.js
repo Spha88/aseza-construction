@@ -22,6 +22,9 @@ const ProjectSlide = () => {
 
     const slideContainer = useRef();
 
+    const firstSlide = testimonials && testimonials[0];
+    const lastSlide = testimonials && testimonials[slideLength - 1]
+
     useEffect(() => {
 
         const mySlideContainer = document.querySelector("#heroSlide");
@@ -31,10 +34,11 @@ const ProjectSlide = () => {
             setState(state => {
                 return {
                     ...state,
-                    // Set the width of the slides container
-                    width: mySlideContainer && mySlideContainer.offsetWidth,
                     testimonials: data,
                     slideLength: data.length,
+                    // Set the width of the slides container
+                    width: mySlideContainer && mySlideContainer.offsetWidth,
+                    translate: mySlideContainer.offsetWidth,
                     loading: false
                 }
             })
@@ -47,38 +51,58 @@ const ProjectSlide = () => {
     const nextSlide = () => {
         // Go back to first slide when you reach the last slide
         if (activeIndex === slideLength - 1) {
-            return setState({
+            setState({
                 ...state,
-                activeIndex: 0,
-                translate: 0
+                transition: 0.45,
+                translate: (activeIndex + 2) * width
             })
+            setTimeout(() => {
+                return setState({
+                    ...state,
+                    activeIndex: 0,
+                    transition: 0,
+                    translate: width,
+                })
+            }, [450])
         }
         setState({
             ...state,
+            transition: 0.45,
             activeIndex: activeIndex + 1,
-            translate: (activeIndex + 1) * width
+            translate: (activeIndex + 2) * width
         })
     };
 
     const prevSlide = () => {
         // Go to last slide if you are on the first slide
         if (activeIndex === 0) {
-            return setState({
+            setState({
                 ...state,
-                translate: (slideLength - 1) * width,
-                activeIndex: slideLength - 1
+                translate: 0,
+                transition: 0.45,
             })
+
+            setTimeout(() => {
+                return setState({
+                    ...state,
+                    transition: 0,
+                    activeIndex: slideLength - 1,
+                    translate: (slideLength * width),
+                })
+            }, [450])
         }
         setState({
             ...state,
+            transition: 0.45,
             activeIndex: activeIndex - 1,
-            translate: (activeIndex - 1) * width
+            translate: activeIndex * width
         })
     };
 
     const selectSlide = index => {
         setState({
             ...state,
+            transition: 0.45,
             activeIndex: index,
             translate: index * width
         })
@@ -98,9 +122,21 @@ const ProjectSlide = () => {
                                 transition: `transform ease-out ${transition}s`,
                                 width: `${width}px`
                             }}>
-
+                            <div className={styles.Slide}>
+                                <div className={styles.SlideInner}>
+                                    <div className={styles.Testimonial}>
+                                        <div dangerouslySetInnerHTML={{ __html: lastSlide.content }} />
+                                        <div className={styles.TestimonialImg}
+                                            style={{ backgroundImage: `url(${lastSlide.testimonialDetails.image.sourceUrl})` }}
+                                        />
+                                    </div>
+                                    <h2>{lastSlide.testimonialDetails.name}</h2>
+                                    <h3>{lastSlide.testimonialDetails.occupation}</h3>
+                                    <h4>{lastSlide.testimonialDetails.organisation}</h4>
+                                </div>
+                            </div>
                             {testimonials.map((slide, index) => (
-                                <div key={index} className={styles.Slide} style={{ backgroundImage: `url(${slide.sourceUrl})` }}>
+                                <div key={index} className={styles.Slide}>
                                     <div className={styles.SlideInner}>
                                         <div className={styles.Testimonial}>
                                             <div dangerouslySetInnerHTML={{ __html: slide.content }} />
@@ -114,6 +150,19 @@ const ProjectSlide = () => {
                                     </div>
                                 </div>
                             ))}
+                            <div className={styles.Slide}>
+                                <div className={styles.SlideInner}>
+                                    <div className={styles.Testimonial}>
+                                        <div dangerouslySetInnerHTML={{ __html: firstSlide.content }} />
+                                        <div className={styles.TestimonialImg}
+                                            style={{ backgroundImage: `url(${firstSlide.testimonialDetails.image.sourceUrl})` }}
+                                        />
+                                    </div>
+                                    <h2>{firstSlide.testimonialDetails.name}</h2>
+                                    <h3>{firstSlide.testimonialDetails.occupation}</h3>
+                                    <h4>{firstSlide.testimonialDetails.organisation}</h4>
+                                </div>
+                            </div>
                         </div>
 
                         {/** Arrows */}
