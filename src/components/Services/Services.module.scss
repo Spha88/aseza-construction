@@ -10,7 +10,7 @@
         padding: 2rem 1rem;
     }
     @include media($mobile) {
-        padding: 4rem 1rem 0;
+        padding: 4rem 5px 0;
     }
     .ServicesContainer {
         display: flex;
@@ -22,14 +22,36 @@
             color: $theme-white;
             margin-right: 1rem;
             &:last-child { margin-right: 0}
-            padding: 3rem 3rem;
             text-align: center;
-            svg {
-                width: 35px;
-                stroke: $theme-color;
+            position: relative;
+            &:hover {
+                .Bg {
+                    background-color: transparentize($color: $theme-black, $amount: 0.05);
+                }
             }
-            p {
-                font-weight: $light;
+            .Bg {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                background-color: transparentize($color: $theme-black, $amount: .15);
+                z-index: 1;
+                @include transition;
+            }
+            .Content {
+                position: relative;
+                display: block;
+                z-index: 2;
+                color: $theme-color;
+                padding: 3rem;
+                svg {
+                    width: 35px;
+                    stroke: $theme-color;
+                }
+                p {
+                    font-weight: $light;
+                }
             }
         }
         @include media($tablet) {
@@ -47,7 +69,7 @@
             .ServiceItem {
                 width: 100%;
                 margin-right: 0;
-                margin-bottom: 1rem;
+                margin-bottom: 10px;
                 padding: 2rem;
             }
         }

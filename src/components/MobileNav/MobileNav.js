@@ -39,7 +39,7 @@ const Nav = () => {
                 <div className={styles.LogoContainer}>
                     <h2 className={styles.Logo}>Aseza</h2>
 
-                    <Link to="/page/contact-page" className={styles.QuoteBtn}>GET A QUOTE</Link>
+                    <Link to="/page/contact" className={styles.QuoteBtn}>GET A QUOTE</Link>
 
                     <MenuIcon click={toggleNav} open={open} />
                 </div>

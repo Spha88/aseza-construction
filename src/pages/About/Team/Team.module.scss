@@ -18,7 +18,7 @@
                 position: absolute;
                 content: "";
                 background-color: $theme-color;
-                height: 5px;
+                height: 3px;
                 border-radius: 5px;
                 width: 50%;
                 left: 0;
@@ -36,6 +36,7 @@
         }
         @include media($mobile) {
             flex-wrap: wrap;
+            padding: 2rem 10px 0;
         }
         .TeamMember {
             width: 25%;

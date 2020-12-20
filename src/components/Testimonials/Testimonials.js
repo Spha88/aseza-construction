@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './Testimonials.module.scss';
 import HeaderElement from '../UI/HeaderElement/HeaderElement';
 import { getTestimonials } from '../../lib/api';
+import SectionLoader from '../UI/SectionLoader/SectionLoader';
 
 const ProjectSlide = () => {
 
@@ -87,7 +88,7 @@ const ProjectSlide = () => {
         <div className={styles.TestimonialsSlide} id="heroSlide" ref={slideContainer}>
 
             { loading ? (
-                <h2>loading...</h2>
+                <SectionLoader />
             ) : (
                     <React.Fragment>
                         <HeaderElement label="What Clients Say" />

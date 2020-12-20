@@ -3,7 +3,8 @@ import styles from './BlogsFrontPage.module.scss';
 import Container from '../UI/Container';
 import HeaderElement from '../UI/HeaderElement/HeaderElement';
 import { Link } from 'react-router-dom';
-import { formatDate, shortenString } from '../../lib/utils';
+import SectionLoader from '../../components/UI/SectionLoader/SectionLoader';
+import { extractor, formatDate } from '../../lib/utils';
 import { getLatestPosts } from '../../lib/api';
 
 const BlogsFrontPage = () => {
@@ -19,18 +20,14 @@ const BlogsFrontPage = () => {
         fetchPosts();
     }, [])
 
-    if (loading) return <h2>Loading ...</h2>
-
-    if (!posts) return <h2>No posts</h2>
-
     return (
         <section className={styles.BlogsFrontPage}>
             <HeaderElement label="Latest News" />
             <Container>
                 <div className={styles.Blogs}>
-                    {posts.map(post => (
+                    {posts && posts.map(post => (
                         <div key={post.slug} className={styles.Blog}>
-                            <div className={styles.FeatureImg} style={{ backgroundImage: `url(${post.featuredImage.node.sourceUrl})` }}>
+                            <div className={styles.FeatureImg} style={{ backgroundImage: `url(${post.featuredImage && post.featuredImage.node.sourceUrl})` }}>
                             </div>
                             <div className={styles.PostBody}>
                                 <div className={styles.MetaData}>
@@ -41,17 +38,18 @@ const BlogsFrontPage = () => {
                                         {formatDate(post.date)}
                                     </p>
                                 </div>
-                                <h2><Link to={`/news/${post.slug}`}>{post.title}</Link></h2>
+                                <h2><Link to={`/news/${post.slug}`}>{extractor(post.title, 10)}</Link></h2>
 
 
                                 <Link to={`/news/${post.slug}`}>
-                                    <div className={styles.Excerpt} dangerouslySetInnerHTML={{ __html: shortenString(post.content, 100) }} />
+                                    <div className={styles.Excerpt} dangerouslySetInnerHTML={{ __html: extractor(post.content, 20) }} />
                                 </Link>
                             </div>
                         </div>
                     ))}
                 </div>
             </Container>
+            { loading && <SectionLoader />}
         </section>
     )
 }

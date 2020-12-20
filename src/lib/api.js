@@ -373,6 +373,30 @@ export const getServices = async () => {
   return data.services.nodes;
 }
 
+// Get featured services for the front page
+export const getFeaturedServices = async () => {
+  const query = `
+  query GetFeaturedServices {
+    services(first: 3, where: {categoryName: "featured-services"}) {
+      nodes {
+        title
+        content
+        slug
+        serviceImages {
+          image1 {
+            altText
+            sourceUrl
+            fileSize(size: MEDIUM)
+          }
+        }
+      }
+    }
+  }
+  `
+  const data = await fetchData(query);
+  return data.services.nodes;
+}
+
 export const getSingleServicePageData = async (slug) => {
   const query = `
   query GetSingleServicePageData($id: ID!, $idType: ServiceIdType!) {

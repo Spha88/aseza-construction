@@ -14,6 +14,7 @@ import SingleProject from './pages/Projects/SingleProject/SingleProject';
 import Footer from './components/Footer/Footer';
 import ServicesPage from './pages/Services/Services';
 import SingleServicePage from './pages/SingleServicePage/SingleServicePage';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -26,7 +27,6 @@ function App() {
         </header>
         <main>
           <Switch>
-
             <Route path="/news/:id" >
               <SingleBlog />
             </Route>
@@ -65,6 +65,8 @@ function App() {
             <Route path="/" exact>
               <Home />
             </Route>
+
+            <Route component={NotFound} />
 
           </Switch>
         </main>

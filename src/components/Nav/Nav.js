@@ -60,7 +60,7 @@ const Nav = () => {
                         )
                     ))}
                 </ul>
-                <Link to="/page/contact-page" className={styles.QuoteBtn}>GET A QUOTE</Link>
+                <Link to="/page/contact" className={styles.QuoteBtn}>GET A QUOTE</Link>
             </div>
         </nav>
     )
