@@ -19,7 +19,6 @@ const HeroSlide = () => {
 
     const firstSlide = mySlides[0];
     const lastSlide = mySlides[mySlides.length - 1]
-    var interval;
 
     const [state, setState] = useState({
         slideLength: mySlides.length,
@@ -106,13 +105,6 @@ const HeroSlide = () => {
             activeIndex: index,
             translate: (index + 1) * width
         })
-    }
-
-    const autoPlay = () => {
-        interval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-        return interval;
     }
 
     return (

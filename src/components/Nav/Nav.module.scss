@@ -8,6 +8,9 @@
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    &:hover {
+        background: transparentize($color: $theme-black, $amount: .1);
+    }
     @include transition;
     @include media($tablet) {
         display: none;
