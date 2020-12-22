@@ -1,0 +1,45 @@
+@import '../../assets/styles/mixin.scss';
+
+.ContactPage {
+    .ContactFormAndDetails {
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+        .ContactForm {
+            width: 70%;
+            padding-right: 3rem;
+        }
+        .ContactDetails {
+            width: 30%;
+        }
+        @include media($laptop) {
+            padding: 3rem 10px 5rem;
+        }
+        @include media($tablet) {
+            padding: 3rem 2rem 5rem;
+            .ContactForm {
+                width: 60%;
+                padding-right: 2rem;
+            }
+            .ContactDetails {
+                width: 40%;
+            }
+        }
+        @include media($mobile) {
+            display: block;
+            padding: 3rem 10px 5rem;
+            .ContactForm {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            .ContactDetails {
+                width: 100%;
+            }
+        }
+    }
+}

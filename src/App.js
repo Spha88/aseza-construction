@@ -14,6 +14,7 @@ import SingleProject from './pages/Projects/SingleProject/SingleProject';
 import Footer from './components/Footer/Footer';
 import ServicesPage from './pages/Services/Services';
 import SingleServicePage from './pages/SingleServicePage/SingleServicePage';
+import ContactUsPage from './pages/ContactUs/ContactUs';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
 
             <Route path="/projects">
               <Projects />
+            </Route>
+
+            <Route path="/contact-us">
+              <ContactUsPage />
             </Route>
 
             {/** for about page */}

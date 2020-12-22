@@ -1,0 +1,43 @@
+@import '../../assets/styles/mixin.scss';
+.ContactFormContainer {
+    h2 {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+    .ContactForm {
+        width: 100%;
+        .FormGroupTwo {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            .FormGroupItem {
+                width: 48%;
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    font-family: inherit;
+                }
+            }
+            @include media($tablet) {
+                flex-wrap: wrap;
+                .FormGroupItem {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .FormGroup {
+            textarea {
+                padding: 10px;
+                width: 100%;
+                height: 200px;
+                resize: none;
+            }
+        }
+        input, textarea {
+            outline: none;
+            border: 1px solid transparentize($color: $theme-black, $amount: .7);
+        }
+    }
+}

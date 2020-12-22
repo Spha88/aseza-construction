@@ -59,8 +59,12 @@ const Nav = () => {
                             </li>
                         )
                     ))}
+
+                    <li className={styles.Item}>
+                        <NavLink to="/contact-us" activeClassName={styles.Active}>Contact Us</NavLink>
+                    </li>
                 </ul>
-                <Link to="/page/contact" className={styles.QuoteBtn}>GET A QUOTE</Link>
+                <Link to="/contact-us" className={styles.QuoteBtn}>GET A QUOTE</Link>
             </div>
         </nav>
     )
