@@ -16,7 +16,6 @@
                 input {
                     width: 100%;
                     padding: 10px;
-                    font-family: inherit;
                 }
             }
             @include media($tablet) {
@@ -34,10 +33,28 @@
                 height: 200px;
                 resize: none;
             }
+            margin-bottom: 1rem;
         }
         input, textarea {
             outline: none;
+            font-family: inherit;
+            font-size: 16px;
             border: 1px solid transparentize($color: $theme-black, $amount: .7);
+        }
+        .ErrorMsg {
+            font-size: 14px;
+            padding-left: 10px;
+            color: red;
+        }
+        button {
+            border: none;
+            background-color: $theme-color;
+            display: inline-block;
+            padding: 10px 40px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: $theme-black;
+            cursor: pointer;
         }
     }
 }
