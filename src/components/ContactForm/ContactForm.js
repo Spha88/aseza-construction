@@ -24,7 +24,7 @@ const ContactForm = () => {
                 <div className={styles.FormGroupTwo}>
                     {/** Name */}
                     <div className={styles.FormGroupItem}>
-                        <input type="text" name="name" placeholder="Enter your name"
+                        <input type="text" name="name" placeholder="Enter your name" className={`${errors?.message ? styles.Error : styles.NoError}`}
                             ref={register({
                                 required: { value: true, message: 'Name is required.' },
                                 minLength: { value: 2, message: 'Name too short.' },
@@ -41,7 +41,7 @@ const ContactForm = () => {
 
                     {/** Email */}
                     <div className={styles.FormGroupItem}>
-                        <input type="text" name="email" placeholder="Email"
+                        <input type="text" name="email" placeholder="Email" className={`${errors?.message && styles.Error}`}
                             ref={register({
                                 required: { value: true, message: 'Email is required.' },
                                 validate: email => validator.isEmail(email) || 'Invalid E-mail'
@@ -57,7 +57,7 @@ const ContactForm = () => {
 
                 {/** Message */}
                 <div className={styles.FormGroup}>
-                    <textarea name="message" id="message"
+                    <textarea name="message" id="message" className={`${errors?.message && styles.Error}`}
                         ref={register({
                             required: { value: true, message: 'Message is required.' },
                             minLength: { value: 2, message: 'Message too short.' },

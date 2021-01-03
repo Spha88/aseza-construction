@@ -10,7 +10,7 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding-bottom: 20px;
+            padding-bottom: 5px;
             .FormGroupItem {
                 width: 48%;
                 input {
@@ -45,7 +45,13 @@
             font-size: 14px;
             padding-left: 10px;
             color: red;
+            min-height: 20px;
         }
+        .Error {
+            border: 1px solid red;
+        }
+        .NoError { border: 1px solid transparentize($color: $theme-black, $amount: .7); }
+        
         button {
             border: none;
             background-color: $theme-color;
@@ -55,6 +61,7 @@
             letter-spacing: 2px;
             color: $theme-black;
             cursor: pointer;
+            outline: none;
         }
     }
 }

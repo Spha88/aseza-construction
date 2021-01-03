@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { navBarMonitor } from '../../lib/utils';
 import { getMenu } from '../../lib/api'
-import ContactDetails from '../HeaderContactDetails/ContactDetails';
 import styles from './Nav.module.scss';
 
 
