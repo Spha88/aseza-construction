@@ -4,6 +4,19 @@
         margin: 0;
         margin-bottom: 1rem;
     }
+    .DeliveryMsg {
+        padding: 0 20px;
+        border: 1px solid $theme-grey;
+        background-color: $theme-color;
+        margin-bottom: 1rem;
+        p {
+            font-weight: $bold;
+        }
+    }
+    .DeliveryError {
+        border: 1px solid $theme-warning;
+        background-color: $theme-warning;
+    }
     .ContactForm {
         width: 100%;
         .FormGroupTwo {
@@ -44,11 +57,11 @@
         .ErrorMsg {
             font-size: 14px;
             padding-left: 10px;
-            color: red;
+            color: $theme-warning;
             min-height: 20px;
         }
         .Error {
-            border: 1px solid red;
+            border: 1px solid $theme-warning;
         }
         .NoError { border: 1px solid transparentize($color: $theme-black, $amount: .7); }
         

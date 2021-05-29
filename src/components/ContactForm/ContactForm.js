@@ -13,13 +13,39 @@ const ContactForm = () => {
 
     const { register, handleSubmit, errors } = useForm();
 
-    const onSubmit = data => {
+    const { sent, sending, responseMsg } = state;
+
+    const onSubmit = async data => {
         console.log(data);
+        // set state to sending: true
+        setState(state => {
+            return {
+                ...state,
+                sending: true
+            }
+        })
+
+        // send data to form handler
+
+        // if sent and no error: set state to sent: true, sending: false, responseMsg: 'Email sent'
+        setState(state => {
+            return {
+                ...state,
+                sent: true,
+                sending: false,
+                responseMsg: 'Your message was sent. Thank you'
+            }
+        })
+
     }
 
     return (
         <div className={styles.ContactFormContainer}>
             <h2>Leave your message</h2>
+            <div className={`${styles.DeliveryMsg}`} style={{ display: `${sent ? 'block' : 'none'}` }}>
+                {sending && <p>Sending...</p>}
+                <p>{responseMsg}</p>
+            </div>
             <form className={styles.ContactForm} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.FormGroupTwo}>
                     {/** Name */}
